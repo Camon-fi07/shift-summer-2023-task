@@ -1,5 +1,7 @@
 .image {
   position: relative;
+  border-radius: 12px;
+  overflow: hidden;
   & img {
     position: absolute;
     width: 100%;

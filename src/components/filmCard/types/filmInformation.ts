@@ -1,4 +1,5 @@
 export interface IFilmInformation {
+  id: string;
   name: string;
   originalName: string;
   releaseDate: string;

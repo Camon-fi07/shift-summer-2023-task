@@ -1,0 +1,40 @@
+.film-description {
+  font-family: "Roboto";
+  display: flex;
+  gap: 24px;
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  &__information {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  &__directors {
+    font-size: 24px;
+    & span {
+      margin-left: 5px;
+    }
+  }
+  &__dop-inf,
+  &__genres {
+    color: #d2d2d2;
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+  }
+  &__score {
+    display: flex;
+    gap: 20px;
+    color: #ff4c2b;
+  }
+  &__description {
+    line-height: 30px;
+    font-size: 22px;
+  }
+}

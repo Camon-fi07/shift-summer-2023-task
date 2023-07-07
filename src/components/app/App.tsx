@@ -1,10 +1,19 @@
-import { Main } from "../../views/main";
+import { FilmPage } from "../../views/filmPage/ui/FilmPage";
+import { MainPage } from "../../views/mainPage";
+import { Head } from "../head";
+import { Routes, Route } from "react-router-dom";
 import "./styles/App.scss";
 
 function App() {
   return (
     <div className="app">
-      <Main />
+      <Head />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/filmPage/:id" element={<FilmPage />} />
+      </Routes>
+      {/* <Main /> */}
+      {/* <FilmPage id={3} /> */}
     </div>
   );
 }

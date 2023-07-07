@@ -1,26 +1,31 @@
 import { useState, useEffect } from "react";
-import { Head } from "../../../components/head";
 import "./style.scss";
-import { getFilms } from "../helpers/films";
 import { FilmCard } from "../../../components/filmCard";
-import { IFilm } from "../types/filmType";
+import { IFilm } from "../../../utils/types/filmType";
+import axios from "axios";
 
-export const Main = () => {
+export const MainPage = () => {
   const [films, setFilms] = useState<IFilm[]>(
     JSON.parse(sessionStorage.getItem("films") || "[]")
   );
   useEffect(() => {
-    getFilms();
-    setFilms(JSON.parse(sessionStorage.getItem("films") || ""));
+    axios
+      .get("https://shift-backend.onrender.com/cinema/today/")
+      .then((res) => {
+        setFilms(res.data.films);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
     <div className="main">
-      <Head />
       <div className="content">
         <div className="films-list">
           {films.map((element) => (
             <FilmCard
+              id={element.id}
               name={element.name}
               originalName={element.originalName}
               releaseDate={element.releaseDate}
