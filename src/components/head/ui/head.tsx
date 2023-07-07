@@ -6,9 +6,6 @@ export const Head = () => {
   return (
     <header className="head">
       <Image path={logoImage} width={20} height={3} />
-      <Link color="white" to="/filmPage/2">
-        To
-      </Link>
       <div className="head__login">Логин</div>
     </header>
   );
