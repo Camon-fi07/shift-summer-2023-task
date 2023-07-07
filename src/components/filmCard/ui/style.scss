@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   &__description {
-    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -40,7 +39,7 @@
     display: flex;
     flex-direction: column;
     & span {
-      color: #e8a236;
+      color: #ff4c2b;
       font-size: 14px;
     }
   }

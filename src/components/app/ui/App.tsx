@@ -1,6 +1,6 @@
-import { FilmPage } from "../../views/filmPage/ui/FilmPage";
-import { MainPage } from "../../views/mainPage";
-import { Head } from "../head";
+import { FilmPage } from "../../../views/filmPage/ui/FilmPage";
+import { MainPage } from "../../../views/mainPage";
+import { Head } from "../../head";
 import { Routes, Route } from "react-router-dom";
 import "./styles/App.scss";
 

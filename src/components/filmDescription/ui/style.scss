@@ -1,9 +1,6 @@
 .film-description {
-  font-family: "Roboto";
   display: flex;
   gap: 24px;
-  width: 80%;
-  margin: 0 auto;
   height: 100%;
   &__information {
     color: white;
@@ -25,6 +22,7 @@
   &__genres {
     color: #d2d2d2;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 20px;
   }

@@ -30,7 +30,7 @@ export const FilmDescription = (props: IDescriptionType) => {
           <span>Kinopoisk - {props.userRatings.kinopoisk}</span>
           <span>imdb - {props.userRatings.imdb}</span>
         </div>
-        <div className="film-description__description">{props.description}</div>
+        <p className="film-description__description">{props.description}</p>
       </div>
     </div>
   );

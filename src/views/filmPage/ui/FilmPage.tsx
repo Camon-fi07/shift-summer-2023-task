@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { FilmDescription } from "../../../components/filmDescription/ui/FilmDescription";
+import { FilmDescription } from "../../../components/filmDescription";
 import { IFilm } from "../../../utils/types/filmType";
 import "./style.scss";
 export const FilmPage = () => {
@@ -22,21 +22,23 @@ export const FilmPage = () => {
 
   return (
     <div className="film-page">
-      {Object.entries(film).length == 0 ? (
-        <p className="">WAIT</p>
-      ) : (
-        <FilmDescription
-          name={film.name}
-          directors={film.directors}
-          genres={film.genres}
-          releaseDate={film.releaseDate}
-          description={film.description}
-          userRatings={film.userRatings}
-          img={film.img}
-          ageRating={film.ageRating}
-        />
-      )}
-      <div></div>
+      <div className="content">
+        {Object.entries(film).length == 0 ? (
+          <p className="">WAIT</p>
+        ) : (
+          <FilmDescription
+            name={film.name}
+            directors={film.directors}
+            genres={film.genres}
+            releaseDate={film.releaseDate}
+            description={film.description}
+            userRatings={film.userRatings}
+            img={film.img}
+            ageRating={film.ageRating}
+          />
+        )}
+        <div></div>
+      </div>
     </div>
   );
 };
