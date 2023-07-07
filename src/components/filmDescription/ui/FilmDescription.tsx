@@ -1,15 +1,12 @@
 import { ageRating } from "../../../utils/ageRating";
-import { Image } from "../../image/Image";
 import { IDescriptionType } from "../types/descriptionType";
 import "./style.scss";
 export const FilmDescription = (props: IDescriptionType) => {
   return (
     <div className="film-description">
-      <Image
-        path={`https://shift-backend.onrender.com${props.img}`}
-        width={30 / 1.4}
-        height={40 / 1.3}
-      />
+      <div className="film-description__img">
+        <img src={`https://shift-backend.onrender.com${props.img}`} alt="" />
+      </div>
       <div className="film-description__information">
         <h2 className="film-description__title">
           {props.name} {ageRating[props.ageRating]}

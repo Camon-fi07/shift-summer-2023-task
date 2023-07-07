@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Image } from "../../image/Image";
 import { IFilmInformation } from "../types/filmInformation";
 import "./style.scss";
 
@@ -7,11 +6,9 @@ export const FilmCard = (props: IFilmInformation) => {
   return (
     <div className="film-card">
       <Link to={`/filmPage/${props.id}`}>
-        <Image
-          path={`https://shift-backend.onrender.com${props.img}`}
-          width={0}
-          height={115}
-        />
+        <div className="film-card__img">
+          <img src={`https://shift-backend.onrender.com${props.img}`} alt="" />
+        </div>
       </Link>
       <div className="film-card__description">
         <h2 className="film-card__title">{props.name}</h2>
