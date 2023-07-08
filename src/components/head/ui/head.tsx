@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import logoImage from "./images/logo.png";
-import "./style.scss";
+import logoImage from "assets/logo.png";
+import style from "./style.module.scss";
 export const Head = () => {
   return (
-    <header className="head">
-      <div className="head__img">
-        <img src={logoImage} alt="" />
+    <header className={style.head}>
+      <div className={style.img}>
+        <img src={logoImage} alt='' />
       </div>
-      <div className="head__login">
-        <Link to="/">Войти</Link>
+      <div className={style.login}>
+        <Link to='/'>Войти</Link>
       </div>
     </header>
   );

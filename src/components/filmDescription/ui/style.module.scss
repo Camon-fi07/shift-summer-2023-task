@@ -1,41 +1,41 @@
-.film-description {
+.filmDescription {
   display: flex;
   gap: 24px;
   height: 100%;
-  &__information {
+  .information {
     color: white;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
   }
-  &__title {
+  .title {
     font-size: 32px;
     font-weight: 600;
   }
-  &__directors {
+  .directors {
     font-size: 24px;
     & span {
       margin-left: 5px;
     }
   }
-  &__dop-inf,
-  &__genres {
+  .dopInf,
+  .genres {
     color: #d2d2d2;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     font-size: 20px;
   }
-  &__score {
+  .score {
     display: flex;
     gap: 20px;
     color: #ff4c2b;
   }
-  &__description {
+  .text {
     line-height: 30px;
     font-size: 22px;
   }
-  &__img {
+  .img {
     border-radius: 8px;
     overflow: hidden;
     position: relative;

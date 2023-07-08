@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
-import "./style.scss";
-import { FilmCard } from "../../../components/filmCard";
-import { IFilm } from "../../../utils/types/filmType";
+import { FilmCard } from "components/filmCard";
+import { film } from "utils/types/film";
 import axios from "axios";
+import { pathToBack } from "utils/consts/pathToBack";
+import "./style.scss";
 
 export const MainPage = () => {
-  const [films, setFilms] = useState<IFilm[]>(
-    JSON.parse(sessionStorage.getItem("films") || "[]")
-  );
+  const [films, setFilms] = useState<film[]>(JSON.parse(sessionStorage.getItem("films") || "[]"));
   useEffect(() => {
     axios
-      .get("https://shift-backend.onrender.com/cinema/today/")
+      .get(`${pathToBack}/cinema/today/`)
       .then((res) => {
         setFilms(res.data.films);
       })

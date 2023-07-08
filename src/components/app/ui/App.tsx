@@ -1,7 +1,7 @@
-import { FilmPage } from "../../../views/filmPage/ui/FilmPage";
-import { MainPage } from "../../../views/mainPage";
-import { Head } from "../../head";
 import { Routes, Route } from "react-router-dom";
+import { Head } from "components/head";
+import { MainPage } from "views/mainPage";
+import { FilmPage } from "views/filmPage/ui/FilmPage";
 import "./styles/App.scss";
 
 function App() {

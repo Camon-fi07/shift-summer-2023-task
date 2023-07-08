@@ -1,32 +1,29 @@
 import { Link } from "react-router-dom";
 import { IFilmInformation } from "../types/filmInformation";
-import "./style.scss";
+import style from "./style.module.scss";
+import { pathToBack } from "utils/consts/pathToBack";
 
 export const FilmCard = (props: IFilmInformation) => {
   return (
-    <div className="film-card">
+    <div className={style.filmCard}>
       <Link to={`/filmPage/${props.id}`}>
-        <div className="film-card__img">
-          <img src={`https://shift-backend.onrender.com${props.img}`} alt="" />
+        <div className={style.img}>
+          <img src={`${pathToBack}${props.img}`} alt='' />
         </div>
       </Link>
-      <div className="film-card__description">
-        <h2 className="film-card__title">{props.name}</h2>
+      <div className={style.description}>
+        <h2 className={style.title}>{props.name}</h2>
         {/* <span className="film-card__subtitle">{props.originalName}</span> */}
-        <div className="film-card__genres">
+        <div className={style.genres}>
           {props.genres.map((element, index) =>
-            index != props.genres.length - 1 ? (
-              <span>{element},</span>
-            ) : (
-              <span>{element}</span>
-            )
+            index != props.genres.length - 1 ? <span>{element},</span> : <span>{element}</span>,
           )}
         </div>
-        <div className="film-card__information">
-          <span className="film-card__year">{props.releaseDate},</span>
-          <span className="film-card__country">Россия</span>
+        <div className={style.information}>
+          <span className={style.year}>{props.releaseDate},</span>
+          <span className={style.country}>Россия</span>
         </div>
-        <div className="film-card__score">
+        <div className={style.score}>
           <span>Kinopoisk - {props.userRatings.kinopoisk}</span>
           <span>imdb - {props.userRatings.imdb}</span>
         </div>

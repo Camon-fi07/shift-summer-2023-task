@@ -1,36 +1,38 @@
-import { ageRating } from "../../../utils/ageRating";
+import { ageRating } from "utils/ageRating";
 import { IDescriptionType } from "../types/descriptionType";
-import "./style.scss";
+import { pathToBack } from "utils/consts/pathToBack";
+import style from "./style.module.scss";
+
 export const FilmDescription = (props: IDescriptionType) => {
   return (
-    <div className="film-description">
-      <div className="film-description__img">
-        <img src={`https://shift-backend.onrender.com${props.img}`} alt="" />
+    <div className={style.filmDescription}>
+      <div className={style.img}>
+        <img src={`${pathToBack}${props.img}`} alt='' />
       </div>
-      <div className="film-description__information">
-        <h2 className="film-description__title">
+      <div className={style.information}>
+        <h2 className={style.title}>
           {props.name} {ageRating[props.ageRating]}
         </h2>
-        <div className="film-description__directors">
+        <div className={style.directors}>
           Режиссёр:
           {props.directors.map((element) => (
             <span key={element.id}>{element.fullName}</span>
           ))}
         </div>
-        <div className="film-description__dop-inf">
-          <div className="film-description__genres">
+        <div className={style.dopInf}>
+          <div className={style.genres}>
             {props.genres.map((element, index) => (
               <span key={index}>{element},</span>
             ))}
           </div>
-          <span className="film-description__country">Russia,</span>
-          <span className="film-description__date">{props.releaseDate}</span>
+          <span>Russia,</span>
+          <span>{props.releaseDate}</span>
         </div>
-        <div className="film-description__score">
+        <div className={style.score}>
           <span>Kinopoisk - {props.userRatings.kinopoisk}</span>
           <span>imdb - {props.userRatings.imdb}</span>
         </div>
-        <p className="film-description__description">{props.description}</p>
+        <p className={style.text}>{props.description}</p>
       </div>
     </div>
   );

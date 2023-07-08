@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { FilmDescription } from "../../../components/filmDescription";
-import { IFilm } from "../../../utils/types/filmType";
+import { film } from "utils/types/film";
+import { FilmDescription } from "components/filmDescription";
+import { TimeLine } from "components/timeLine";
 import "./style.scss";
+import { pathToFilm } from "utils/consts/pathToBack";
+
 export const FilmPage = () => {
   const { id } = useParams();
-  const [film, setFilm] = useState<IFilm>(
-    JSON.parse(sessionStorage.getItem(`film${id}`) || "{}")
-  );
+  const [film, setFilm] = useState<film>(JSON.parse(sessionStorage.getItem(`film${id}`) || "{}"));
   useEffect(() => {
     axios
-      .get(`https://shift-backend.onrender.com/cinema/film/${id}`)
+      .get(`${pathToFilm}/${id}`)
       .then((res) => {
         setFilm(res.data.film);
       })
@@ -37,7 +38,7 @@ export const FilmPage = () => {
             ageRating={film.ageRating}
           />
         )}
-        <div></div>
+        <TimeLine id={id!} />
       </div>
     </div>
   );
