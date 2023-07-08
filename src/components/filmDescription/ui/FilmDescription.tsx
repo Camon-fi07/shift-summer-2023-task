@@ -1,17 +1,17 @@
 import { ageRating } from "utils/ageRating";
-import { IDescriptionType } from "../types/descriptionType";
+import { descriptionType } from "../types/descriptionType";
 import { pathToBack } from "utils/consts/pathToBack";
 import style from "./style.module.scss";
 
-export const FilmDescription = (props: IDescriptionType) => {
+export const FilmDescription = (props: descriptionType) => {
   return (
     <div className={style.filmDescription}>
       <div className={style.img}>
-        <img src={`${pathToBack}${props.img}`} alt='' />
+        <img src={`${pathToBack}${props.img}`} alt="" />
       </div>
       <div className={style.information}>
         <h2 className={style.title}>
-          {props.name} {ageRating[props.ageRating]}
+          {props.name} ({ageRating[props.ageRating]})
         </h2>
         <div className={style.directors}>
           Режиссёр:

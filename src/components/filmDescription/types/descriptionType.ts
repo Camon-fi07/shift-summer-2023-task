@@ -1,4 +1,4 @@
-export interface IDescriptionType {
+export interface descriptionType {
   name: string;
   directors: {
     id: string;
