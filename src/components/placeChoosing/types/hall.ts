@@ -1,5 +1,5 @@
 export interface hall {
-  chosenPlaces: { price: number; type: string }[][];
-  setChosenPlaces: (newPlaces: { price: number; type: string }[][]) => void;
+  chosenPlaces: { row: number; place: number; cost: number }[];
+  setChosenPlaces: (newPlaces: { row: number; place: number; cost: number }[]) => void;
   places: { price: number; type: string }[][];
 }

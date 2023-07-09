@@ -38,7 +38,7 @@ export const FilmPage = () => {
             ageRating={film.ageRating}
           />
         )}
-        <TimeLine id={id!} />
+        <TimeLine id={id!} name={film.name} ageRating={film.ageRating} />
       </div>
     </div>
   );

@@ -17,6 +17,23 @@ export const PlaceChoosing = (props: hall) => {
                 <button
                   onMouseEnter={() => setHoverPlace({ row: rowIndex, place: placeIndex })}
                   onMouseLeave={() => setHoverPlace({ row: -1, place: -1 })}
+                  onClick={() => {
+                    const chosenPlace = {
+                      row: rowIndex + 1,
+                      place: placeIndex + 1,
+                      cost: place.price,
+                    };
+                    const wasPlaceChosen = props.chosenPlaces.some(
+                      (element) => element.row == chosenPlace.row && element.place == chosenPlace.place,
+                    );
+                    props.setChosenPlaces(
+                      wasPlaceChosen
+                        ? props.chosenPlaces.filter(
+                            (element) => element.row != chosenPlace.row || element.place != chosenPlace.place,
+                          )
+                        : [...props.chosenPlaces, chosenPlace],
+                    );
+                  }}
                   className={`${style.place} ${style[place.type.toLowerCase()]}`}
                 >
                   <div

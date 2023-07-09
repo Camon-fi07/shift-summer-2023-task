@@ -1,7 +1,6 @@
 import { changeDate } from "utils/helpers/changeDate";
 import { seanse } from "../types/seanses";
 import style from "./style.module.scss";
-import { useState } from "react";
 
 export const TimeTable = (props: seanse) => {
   return (

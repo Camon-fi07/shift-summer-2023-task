@@ -1,0 +1,22 @@
+.ticket {
+  border: 2px dashed #fff;
+  color: white;
+  .information {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .places {
+  }
+  .purchase {
+    height: 30%;
+    border-top: 2px dashed #fff;
+  }
+  .description {
+  }
+  .value {
+    color: white;
+  }
+}

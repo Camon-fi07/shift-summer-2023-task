@@ -4,12 +4,13 @@ import axios from "axios";
 import { pathToFilm } from "utils/consts/pathToBack";
 import { TimeTable } from "components/timeTable/ui/TimeTable";
 import { PlaceChoosing } from "components/placeChoosing/ui/PlaceChoosing";
+import { Ticket } from "components/ticket/ui/Ticket";
 
-export const TimeLine = ({ id }: { id: string }) => {
+export const TimeLine = ({ id, name, ageRating }: { id: string; name: string; ageRating: string }) => {
   const [schedules, setSchedules] = useState<schedules[]>();
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
-  const [chosenPlaces, setChosenPlaces] = useState<{ price: number; type: string }[][]>([[]]);
+  const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
   useEffect(() => {
     axios
       .get(`${pathToFilm}/${id}/schedule`)
@@ -47,6 +48,13 @@ export const TimeLine = ({ id }: { id: string }) => {
             chosenPlaces={chosenPlaces}
             setChosenPlaces={setChosenPlaces}
             places={schedules[chosenDate].seances[chosenSession].hall.places}
+          />
+          <Ticket
+            filmName={name}
+            ageRating={ageRating}
+            date={schedules[chosenDate].date + schedules[chosenDate].seances[chosenSession].time}
+            places={chosenPlaces}
+            hallName={schedules[chosenDate].seances[chosenSession].hall.name}
           />
         </div>
       )}
