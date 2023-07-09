@@ -4,7 +4,7 @@ export interface schedules {
     time: string;
     hall: {
       name: string;
-      places: (null | { row: number; column: number })[];
+      places: { price: number; type: string }[][];
     };
     payedTickets: {
       filmId: string;

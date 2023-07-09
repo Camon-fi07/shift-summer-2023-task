@@ -1,0 +1,91 @@
+.hall {
+  .screenTitle {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .screen {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .places {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .place {
+        position: relative;
+        background-color: white;
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        &:hover {
+          border: 3px solid #f55a5a;
+        }
+        .placeInformation {
+          width: 70px;
+          height: 60px;
+          z-index: 2;
+          border-radius: 10px;
+          background-color: white;
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translate(-50%, -120%);
+          & span {
+            font-size: 15px;
+            color: black;
+          }
+          .placeCost {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      .bought {
+        background-color: #585858;
+      }
+      .blocked {
+        background-color: #949494;
+      }
+      .bought,
+      .blocked {
+        &:hover {
+          border: none;
+        }
+      }
+
+      .econom {
+        border: 3.5px solid #4656e9;
+      }
+      .comfort {
+        border: 3.5px solid #b448e7;
+      }
+      .rowNumber {
+        font-size: 20px;
+        color: white;
+      }
+    }
+  }
+}
