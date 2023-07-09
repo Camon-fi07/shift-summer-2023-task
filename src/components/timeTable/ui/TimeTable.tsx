@@ -1,5 +1,5 @@
 import { changeDate } from "utils/helpers/changeDate";
-import { seanse } from "../types/seanses";
+import { seanse } from "../types/seances";
 import style from "./style.module.scss";
 
 export const TimeTable = (props: seanse) => {

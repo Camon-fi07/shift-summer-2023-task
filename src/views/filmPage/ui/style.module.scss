@@ -1,0 +1,18 @@
+.filmPage {
+  padding-bottom: 24px;
+}
+.content {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.userOrder {
+  margin-top: 40px;
+  width: 100%;
+  display: grid;
+  gap: 23px;
+  grid-template-columns: 72fr 29fr;
+  grid-template-rows: 1fr;
+}

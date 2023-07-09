@@ -5,27 +5,27 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 24px;
-  .img {
-    position: relative;
-    padding: 3% 19% 0 0;
-    overflow: hidden;
-    & img {
-      position: absolute;
-      object-fit: cover;
-      object-position: center;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
+}
+.img {
+  position: relative;
+  padding: 3% 19% 0 0;
+  overflow: hidden;
+  & img {
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
-  .login {
-    width: 120px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    border: 2px solid whitesmoke;
-  }
+}
+.login {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border: 2px solid whitesmoke;
 }
