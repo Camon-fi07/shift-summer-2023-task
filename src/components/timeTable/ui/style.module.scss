@@ -1,3 +1,4 @@
+@import "components/app/ui/styles/colors.scss";
 .timeTable {
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
 
 .title {
   text-align: center;
-  color: #f55a5a;
+  color: $orange;
   font-weight: 500;
   letter-spacing: 0.4px;
   text-transform: uppercase;
@@ -26,12 +27,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #b448e7;
+    border: 3px solid $default-purple;
     border-radius: 16px;
     transition-property: background-color;
     transition-duration: 0.2s;
     &:hover {
-      background-color: #8855a0;
+      background-color: $hover-purple;
     }
     & span {
       color: whitesmoke;
@@ -58,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #4656e9;
+  border: 2px solid $default-blue;
   border-radius: 3px;
   background-color: #180d0d;
   transition-property: background-color;
@@ -69,11 +70,11 @@
     font-weight: 700;
   }
   &:hover {
-    background-color: #4451c6;
+    background-color: $hover-blue;
   }
 }
 .activeSession {
-  background-color: #4656e9;
+  background-color: $default-blue;
 }
 .startTime {
   transform: translate(0, 20px);
@@ -81,5 +82,5 @@
 .activeDate {
   height: 64px !important;
   width: 176px/1040px * 100% !important;
-  background-color: #b448e7 !important;
+  background-color: $default-purple !important;
 }

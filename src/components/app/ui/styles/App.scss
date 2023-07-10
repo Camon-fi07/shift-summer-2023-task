@@ -1,7 +1,8 @@
 @import "./nulll.scss";
 @import "./fonts.scss";
+@import "./colors.scss";
 .app {
-  background-color: #000218;
+  background-color: $background;
   min-height: 100vh;
   font-family: "Roboto";
 }

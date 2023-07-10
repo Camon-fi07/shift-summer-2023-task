@@ -1,6 +1,7 @@
+@import "components/app/ui/styles/colors.scss";
 .ticket {
-  border: 4px dashed #fff;
-  color: white;
+  border: 4px dashed $text-color;
+  color: $text-color;
 }
 
 .information {
@@ -22,7 +23,7 @@
   flex-direction: column;
   align-items: end;
   gap: 10px;
-  border-top: 4px dashed #fff;
+  border-top: 4px dashed $text-color;
   & > * {
     text-align: right;
   }
@@ -43,15 +44,14 @@
   letter-spacing: 0.24px;
   font-size: 24px;
   font-weight: 500;
-  color: silver;
+  color: $subtitle;
 }
 .value,
 .title {
   font-size: 20px;
   font-weight: 600;
-  color: white;
+  color: $text-color;
 }
-
 .title {
   text-align: center;
   font-weight: 700;
@@ -64,10 +64,10 @@
   width: 40%;
   height: 40px;
   border-radius: 8px;
-  background-color: #f55a5a;
+  background-color: $orange;
 
   & span {
-    color: white;
+    color: $text-color;
     font-size: 18px;
     font-weight: 500;
   }

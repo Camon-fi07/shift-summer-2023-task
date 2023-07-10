@@ -1,23 +1,24 @@
+@import "components/app/ui/styles/colors.scss";
 .hall {
   min-width: 720px;
 }
 .screenTitle {
   font-size: 20px;
   text-align: center;
-  color: white;
+  color: $text-color;
   display: block;
   margin-bottom: 5px;
 }
 .screen {
   width: 100%;
   height: 5px;
-  background-color: white;
+  background-color: $text-color;
   margin-bottom: 20px;
   border-radius: 50%;
 }
 
 .places {
-  border: 1px solid white;
+  border: 1px solid $text-color;
   border-radius: 5px;
   padding: 20px 10px;
   display: flex;
@@ -32,12 +33,12 @@
 }
 .place {
   position: relative;
-  background-color: white;
+  background-color: $text-color;
   border-radius: 50%;
   width: 33px;
   height: 33px;
   &:hover {
-    border: 3px solid #f55a5a;
+    border: 3px solid $orange;
   }
 }
 .placeInformation {
@@ -45,7 +46,7 @@
   height: 60px;
   z-index: 2;
   border-radius: 10px;
-  background-color: white;
+  background-color: $text-color;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -67,10 +68,10 @@
 }
 
 .bought {
-  background-color: #585858;
+  background-color: $bought-place;
 }
 .blocked {
-  background-color: #949494;
+  background-color: $blocked-place;
 }
 .bought,
 .blocked {
@@ -80,12 +81,12 @@
 }
 
 .econom {
-  border: 3.5px solid #4656e9;
+  border: 3.5px solid $default-blue;
 }
 .comfort {
-  border: 3.5px solid #b448e7;
+  border: 3.5px solid $default-purple;
 }
 .rowNumber {
   font-size: 20px;
-  color: white;
+  color: $text-color;
 }

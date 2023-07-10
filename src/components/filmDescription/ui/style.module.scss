@@ -1,3 +1,4 @@
+@import "components/app/ui/styles/colors.scss";
 .filmDescription {
   display: flex;
   gap: 24px;
@@ -21,7 +22,7 @@
 }
 .dopInf,
 .genres {
-  color: #d2d2d2;
+  color: $subtitle;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -30,7 +31,7 @@
 .score {
   display: flex;
   gap: 20px;
-  color: #ff4c2b;
+  color: $orange;
 }
 .text {
   line-height: 30px;
