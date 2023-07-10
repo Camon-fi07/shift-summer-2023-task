@@ -41,6 +41,11 @@
     border: 3px solid $orange;
   }
 }
+
+.chosenPlace {
+  background-color: $orange;
+}
+
 .placeInformation {
   width: 70px;
   height: 60px;
@@ -79,7 +84,6 @@
     border: none;
   }
 }
-
 .econom {
   border: 3.5px solid $default-blue;
 }

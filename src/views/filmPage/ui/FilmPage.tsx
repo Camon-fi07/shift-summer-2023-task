@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Film } from "utils/types/film";
 import { FilmDescription } from "components/filmDescription";
@@ -17,7 +17,9 @@ export const FilmPage = () => {
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
-
+  useEffect(() => {
+    setChosenPlaces([]);
+  }, [chosenSession, chosenDate]);
   return (
     <div className={style.filmPage}>
       <div className={style.content}>

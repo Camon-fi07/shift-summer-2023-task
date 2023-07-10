@@ -25,15 +25,21 @@ export const PlaceChoosing = (props: Hall) => {
                   const wasPlaceChosen = props.chosenPlaces.some(
                     (element) => element.row == chosenPlace.row && element.place == chosenPlace.place,
                   );
-                  props.setChosenPlaces(
-                    wasPlaceChosen
-                      ? props.chosenPlaces.filter(
-                          (element) => element.row != chosenPlace.row || element.place != chosenPlace.place,
-                        )
-                      : [...props.chosenPlaces, chosenPlace],
-                  );
+                  if (place.type.toLowerCase() != "blocked" && place.type.toLowerCase() != "payed" && !wasPlaceChosen) {
+                    props.setChosenPlaces([...props.chosenPlaces, chosenPlace]);
+                  } else if (wasPlaceChosen) {
+                    props.setChosenPlaces(
+                      props.chosenPlaces.filter(
+                        (element) => element.row != chosenPlace.row || element.place != chosenPlace.place,
+                      ),
+                    );
+                  }
                 }}
-                className={`${style.place} ${style[place.type.toLowerCase()]}`}
+                className={`${
+                  props.chosenPlaces.some((element) => element.row - 1 == rowIndex && element.place - 1 == placeIndex)
+                    ? style.chosenPlace
+                    : ""
+                } ${style.place} ${style[place.type.toLowerCase()]}`}
               >
                 <div
                   className={`${
