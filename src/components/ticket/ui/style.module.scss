@@ -1,22 +1,74 @@
 .ticket {
-  border: 2px dashed #fff;
+  border: 4px dashed #fff;
   color: white;
-  .information {
-    display: flex;
-    flex-direction: column;
-    height: 70%;
-    justify-content: space-around;
-    align-items: center;
-  }
 }
+
+.information {
+  display: flex;
+  flex-direction: column;
+  width: 249px/297px * 100%;
+  margin: 16px auto;
+  gap: 16px;
+}
+
 .places {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .purchase {
-  height: 30%;
-  border-top: 2px dashed #fff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  border-top: 4px dashed #fff;
+  & > * {
+    text-align: right;
+  }
+  & div:first-child span {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.24px;
+  }
+}
+.parametr {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 .description {
+  letter-spacing: 0.24px;
+  font-size: 24px;
+  font-weight: 500;
+  color: silver;
 }
-.value {
+.value,
+.title {
+  font-size: 20px;
+  font-weight: 600;
   color: white;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.buyButton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #f55a5a;
+
+  & span {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }

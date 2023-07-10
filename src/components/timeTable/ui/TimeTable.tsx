@@ -1,4 +1,4 @@
-import { changeDate } from "utils/helpers/changeDate";
+import { getDayInfo } from "utils/helpers/changeDate";
 import { seanse } from "../types/seances";
 import style from "./style.module.scss";
 
@@ -15,7 +15,7 @@ export const TimeTable = (props: seanse) => {
               props.setChosenSession(0);
             }}
           >
-            <span>{changeDate(element.date)}</span>
+            <span>{getDayInfo(element.date)}</span>
           </button>
         ))}
       </div>

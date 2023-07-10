@@ -83,7 +83,8 @@ export const FilmPage = () => {
               <Ticket
                 filmName={film.name}
                 ageRating={film.ageRating}
-                date={schedules[chosenDate].date + schedules[chosenDate].seances[chosenSession].time}
+                date={schedules[chosenDate].date}
+                time={schedules[chosenDate].seances[chosenSession].time}
                 places={chosenPlaces}
                 hallName={schedules[chosenDate].seances[chosenSession].hall.name}
               />

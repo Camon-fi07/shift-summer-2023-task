@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { ageRating } from "utils/ageRating";
 import { ticketInfo } from "../types/ticketInfo";
+import ticketIcon from "assets/ticket.svg";
 import style from "./style.module.scss";
+import { getSeanseInfo } from "utils/helpers/changeDate";
 
 export const Ticket = (props: ticketInfo) => {
   const [price, setPrice] = useState(0);
-  console.log(props.places);
-  // useEffect(() => {
-  //   props.places.forEach((element) => {
-  //     setPrice(price + element.cost);
-  //   });
-  // }, [props.places]);
+  useEffect(() => {
+    setPrice(0);
+    props.places.forEach((element) => {
+      setPrice(price + element.cost);
+    });
+  }, [props.places]);
   return (
     <div className={style.ticket}>
       <div className={style.information}>
-        <span className={style.value}>{props.hallName} зал</span>
+        <span className={style.title}>{props.hallName} зал</span>
         <div className={style.parametr}>
           <span className={style.description}>Фильм:</span>
           <span className={style.value}>
@@ -23,7 +25,9 @@ export const Ticket = (props: ticketInfo) => {
         </div>
         <div className={style.parametr}>
           <span className={style.description}>Дата и время:</span>
-          <span className={style.value}>{props.date}</span>
+          <span className={style.value}>
+            {getSeanseInfo(props.date)} {props.time}
+          </span>
         </div>
         <div className={style.parametr}>
           <span className={style.description}>Места:</span>
@@ -37,13 +41,13 @@ export const Ticket = (props: ticketInfo) => {
         </div>
       </div>
       <div className={style.purchase}>
-        <div className={style.price}>
+        <div className={`${style.parametr}`}>
           <span>Сумма: </span>
-          <span>{price}</span>
+          <span>{price} руб</span>
         </div>
-        <button className={style.butButton}>
-          <span></span>
-          <img src="" alt="" />
+        <button className={style.buyButton}>
+          <span>Купить</span>
+          <img src={ticketIcon} alt="" />
         </button>
       </div>
     </div>
