@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { film } from "utils/types/film";
 import { FilmDescription } from "components/filmDescription";
 import { schedules } from "utils/types/schedules";
@@ -8,43 +7,21 @@ import { pathToFilm } from "utils/consts/pathToBack";
 import { TimeTable } from "components/timeTable/ui/TimeTable";
 import { PlaceChoosing } from "components/placeChoosing/ui/PlaceChoosing";
 import { Ticket } from "components/ticket/ui/Ticket";
+import { useRequest } from "utils/hooks/useRequest";
 import style from "./style.module.scss";
 
 export const FilmPage = () => {
   const { id } = useParams();
-  const [film, setFilm] = useState<film>(JSON.parse(sessionStorage.getItem(`film${id}`) || "{}"));
-  const [schedules, setSchedules] = useState<schedules[]>();
+  const [film, setFilm] = useRequest<film>(`${pathToFilm}/${id}`, "film");
+  const [schedules, setSchedules] = useRequest<schedules[]>(`${pathToFilm}/${id}/schedule`, "schedules");
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
-  useEffect(() => {
-    axios
-      .get(`${pathToFilm}/${id}`)
-      .then((res) => {
-        setFilm(res.data.film);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    axios
-      .get(`${pathToFilm}/${id}/schedule`)
-      .then((res) => {
-        const originData: schedules[] = res.data.schedules;
-        originData.forEach((element) => {
-          element.seances.sort((a, b) => Number(a.time.split(":")[0]) - Number(b.time.split(":")[0]));
-        });
-        setSchedules(originData);
-        console.log(originData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <div className={style.filmPage}>
       <div className={style.content}>
-        {Object.entries(film).length == 0 ? (
+        {film === undefined ? (
           <p className="">WAIT</p>
         ) : (
           <FilmDescription
@@ -58,7 +35,7 @@ export const FilmPage = () => {
             ageRating={film.ageRating}
           />
         )}
-        {schedules === undefined ? (
+        {film === undefined || schedules === undefined ? (
           <p>WAIT</p>
         ) : (
           <div>
