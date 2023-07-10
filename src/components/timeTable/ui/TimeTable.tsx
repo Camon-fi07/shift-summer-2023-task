@@ -1,8 +1,8 @@
 import { getDayInfo } from "utils/helpers/changeDate";
-import { seanse } from "../types/seances";
+import { Seance } from "../types/seances";
 import style from "./style.module.scss";
 
-export const TimeTable = (props: seanse) => {
+export const TimeTable = (props: Seance) => {
   return (
     <div className={style.timeTable}>
       <h2 className={style.title}>Расписание</h2>

@@ -1,4 +1,4 @@
-export interface IFilmInformation {
+export interface FilmInformation {
   id: string;
   name: string;
   originalName: string;

@@ -1,4 +1,4 @@
-export interface ticketInfo {
+export interface TicketInfo {
   filmName: string;
   ageRating: string;
   date: string;

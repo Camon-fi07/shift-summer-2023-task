@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ageRating } from "utils/ageRating";
-import { ticketInfo } from "../types/ticketInfo";
+import { ageRating } from "utils/consts/ageRating";
+import { TicketInfo } from "../types/ticketInfo";
 import ticketIcon from "assets/ticket.svg";
 import style from "./style.module.scss";
 import { getSeanseInfo } from "utils/helpers/changeDate";
 
-export const Ticket = (props: ticketInfo) => {
+export const Ticket = (props: TicketInfo) => {
   const [price, setPrice] = useState(0);
   useEffect(() => {
     setPrice(0);

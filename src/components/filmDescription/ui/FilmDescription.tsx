@@ -1,9 +1,9 @@
-import { ageRating } from "utils/ageRating";
-import { descriptionType } from "../types/descriptionType";
+import { ageRating } from "utils/consts/ageRating";
+import { DescriptionOfFilm } from "../types/descriptionType";
 import { pathToBack } from "utils/consts/pathToBack";
 import style from "./style.module.scss";
 
-export const FilmDescription = (props: descriptionType) => {
+export const FilmDescription = (props: DescriptionOfFilm) => {
   return (
     <div className={style.filmDescription}>
       <div className={style.img}>

@@ -1,4 +1,4 @@
-export interface schedules {
+export interface Schedules {
   date: string;
   seances: {
     time: string;

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { hall } from "../types/hall";
+import { Hall } from "../types/hall";
 import style from "./style.module.scss";
 
-export const PlaceChoosing = (props: hall) => {
+export const PlaceChoosing = (props: Hall) => {
   const [hoverPlace, setHoverPlace] = useState<{ row: number; place: number }>({ row: -1, place: -1 });
   return (
     <div className={style.hall}>

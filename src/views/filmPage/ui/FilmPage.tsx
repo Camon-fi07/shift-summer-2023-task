@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { film } from "utils/types/film";
+import { Film } from "utils/types/film";
 import { FilmDescription } from "components/filmDescription";
-import { schedules } from "utils/types/schedules";
+import { Schedules } from "utils/types/schedules";
 import { pathToFilm } from "utils/consts/pathToBack";
 import { TimeTable } from "components/timeTable/ui/TimeTable";
 import { PlaceChoosing } from "components/placeChoosing/ui/PlaceChoosing";
@@ -12,8 +12,8 @@ import style from "./style.module.scss";
 
 export const FilmPage = () => {
   const { id } = useParams();
-  const [film, setFilm] = useRequest<film>(`${pathToFilm}/${id}`, "film");
-  const [schedules, setSchedules] = useRequest<schedules[]>(`${pathToFilm}/${id}/schedule`, "schedules");
+  const [film, setFilm] = useRequest<Film>(`${pathToFilm}/${id}`, "film");
+  const [schedules, setSchedules] = useRequest<Schedules[]>(`${pathToFilm}/${id}/schedule`, "schedules");
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);

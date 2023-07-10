@@ -1,4 +1,4 @@
-import { daysOfWeek, months } from "utils/dates";
+import { daysOfWeek, months } from "utils/consts/dates";
 
 export const getDayInfo = (standartDate: string): string => {
   const [day, month, year] = standartDate.split(".");

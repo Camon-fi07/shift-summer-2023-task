@@ -1,4 +1,4 @@
-export interface seanse {
+export interface Seance {
   chosenDate: number;
   setChosenDate: (newDate: number) => void;
   chosenSession: number;

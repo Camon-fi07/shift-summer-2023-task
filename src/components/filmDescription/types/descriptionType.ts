@@ -1,4 +1,4 @@
-export interface descriptionType {
+export interface DescriptionOfFilm {
   name: string;
   directors: {
     id: string;
