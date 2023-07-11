@@ -17,8 +17,6 @@ export const MainPage = () => {
               <FilmCard
                 id={element.id}
                 name={element.name}
-                originalName={element.originalName}
-                releaseDate={element.releaseDate}
                 ageRating={element.ageRating}
                 userRatings={element.userRatings}
                 img={element.img}

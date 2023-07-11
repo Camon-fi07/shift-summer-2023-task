@@ -18,10 +18,6 @@ export const FilmCard = (props: FilmInformation) => {
             index != props.genres.length - 1 ? <span>{element},</span> : <span>{element}</span>,
           )}
         </div>
-        <div className={style.information}>
-          <span className={style.year}>{props.releaseDate},</span>
-          <span className={style.country}>Россия</span>
-        </div>
         <div className={style.score}>
           <span>Kinopoisk - {props.userRatings.kinopoisk}</span>
           <span>imdb - {props.userRatings.imdb}</span>

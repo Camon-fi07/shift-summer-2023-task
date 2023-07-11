@@ -40,7 +40,7 @@ export const FilmPage = () => {
         {film === undefined || schedules === undefined ? (
           <p>WAIT</p>
         ) : (
-          <div>
+          <div className={style.userOrder}>
             <TimeTable
               chosenDate={chosenDate}
               setChosenDate={setChosenDate}
@@ -53,7 +53,11 @@ export const FilmPage = () => {
                 };
               })}
             />
-            <div className={style.userOrder}>
+            <div
+              className={`${
+                schedules[chosenDate].seances[chosenSession].hall.places[0].length <= 10 ? style.row : style.column
+              } ${style.gridOrder}`}
+            >
               <PlaceChoosing
                 chosenPlaces={chosenPlaces}
                 setChosenPlaces={setChosenPlaces}

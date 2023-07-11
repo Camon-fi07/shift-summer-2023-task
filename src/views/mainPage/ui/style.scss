@@ -8,6 +8,13 @@
 .films-list {
   display: grid;
   gap: 30px;
-  grid-auto-rows: minmax(484px, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+  grid-auto-rows: minmax(440px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+@media (max-width: 762px) {
+  .films-list {
+    justify-content: center;
+    grid-auto-rows: auto;
+    grid-template-columns: minmax(320px, 0.65fr);
+  }
 }

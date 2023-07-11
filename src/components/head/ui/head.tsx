@@ -4,11 +4,9 @@ import style from "./style.module.scss";
 export const Head = () => {
   return (
     <header className={style.head}>
-      <div className={style.img}>
-        <img src={logoImage} alt='' />
-      </div>
+      <img className={style.logo} src={logoImage} alt="" />
       <div className={style.login}>
-        <Link to='/'>Войти</Link>
+        <Link to="/">Войти</Link>
       </div>
     </header>
   );

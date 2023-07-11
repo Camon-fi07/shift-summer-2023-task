@@ -7,11 +7,15 @@ import { getSeanseInfo } from "utils/helpers/changeDate";
 
 export const Ticket = (props: TicketInfo) => {
   const [price, setPrice] = useState(0);
+  const [isError, setIsError] = useState(true);
   useEffect(() => {
-    setPrice(0);
+    setIsError(false);
+    let sum = 0;
     props.places.forEach((element) => {
-      setPrice(price + element.cost);
+      sum += element.cost;
+      if (element.cost == 0) setIsError(true);
     });
+    setPrice(sum);
   }, [props.places]);
   return (
     <div className={style.ticket}>
@@ -45,7 +49,7 @@ export const Ticket = (props: TicketInfo) => {
           <span>Сумма: </span>
           <span>{price} руб</span>
         </div>
-        <button className={style.buyButton}>
+        <button className={`${isError ? style.notAvailable : ""} ${style.buyButton}`}>
           <span>Купить</span>
           <img src={ticketIcon} alt="" />
         </button>
