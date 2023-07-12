@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import style from "./style.module.scss";
 import { UserDataInfo } from "../types/userDataInfo";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { Link } from "react-router-dom";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { Field } from "components/field/ui/Field";
+import { checkMiddleName, checkName, checkPhone, deleteBackSpace } from "utils/helpers/validate";
+import style from "./style.module.scss";
 
 export const UserData = (props: UserDataInfo) => {
   const [filmAndUserInfo, setFilmAndUserInfo] = useContext(filmAndUserInfoContext)!;
@@ -31,42 +33,22 @@ export const UserData = (props: UserDataInfo) => {
         +
       </button>
       <h2 className={style.title}>Введите ваши данные</h2>
-      <div className={style.property}>
-        <h2 className={style.name}>Имя*</h2>
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value.trim())}
-          className={style.value}
-          type="text"
-        />
-      </div>
-      <div className={style.property}>
-        <h2 className={style.name}>Фамилия*</h2>
-        <input
-          value={surname}
-          onChange={(event) => setSurname(event.target.value.trim())}
-          className={style.value}
-          type="text"
-        />
-      </div>
-      <div className={style.property}>
-        <h2 className={style.name}>Отчество</h2>
-        <input
-          value={patronymic}
-          onChange={(event) => setPatronymic(event.target.value.trim())}
-          className={style.value}
-          type="text"
-        />
-      </div>
-      <div className={style.property}>
-        <h2 className={style.name}>Телефон*</h2>
-        <input
-          value={phone}
-          onChange={(event) => setPhone(event.target.value.trim())}
-          className={style.value}
-          type="tel"
-        />
-      </div>
+      <Field name={"Имя*"} value={name} changeData={deleteBackSpace} setValue={setName} validate={checkName} />
+      <Field
+        name={"Фамилия*"}
+        value={surname}
+        changeData={deleteBackSpace}
+        setValue={setSurname}
+        validate={checkName}
+      />
+      <Field
+        name={"Отчество"}
+        value={patronymic}
+        changeData={deleteBackSpace}
+        setValue={setPatronymic}
+        validate={checkMiddleName}
+      />
+      <Field name={"Телефон*"} value={phone} changeData={deleteBackSpace} setValue={setPhone} validate={checkPhone} />
 
       <Link className={style.submitButton} to={`/BankPage`}>
         <span>Далее</span>

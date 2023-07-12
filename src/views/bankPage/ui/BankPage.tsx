@@ -9,6 +9,8 @@ import ShiftBank from "assets/SHIFTcard.svg";
 import { orderStatusContext } from "utils/context/orderStatus";
 import { useContext, useEffect, useState } from "react";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { Field } from "components/field/ui/Field";
+import { checkCvv, checkExpireDate, checkPan, getCurrentExpireDate, getCurrentPan } from "utils/helpers/validate";
 
 export const BankPage = () => {
   const [filmAndUserInfo, setFilmAndUserInfo] = useContext(filmAndUserInfoContext)!;
@@ -36,23 +38,15 @@ export const BankPage = () => {
             <img src={ShiftBank} alt="" />
           </div>
           <div className={style.cardData}>
-            <div className={style.property}>
-              <h2 className={style.name}>Номер*</h2>
-              <input value={pan} onChange={(event) => setPan(event.target.value)} className={style.value} type="text" />
-            </div>
-            <div className={style.property}>
-              <h2 className={style.name}>Срок*</h2>
-              <input
-                value={expireDate}
-                onChange={(event) => setExpireDate(event.target.value)}
-                className={style.value}
-                type="text"
-              />
-            </div>
-            <div className={style.property}>
-              <h2 className={style.name}>CVV*</h2>
-              <input value={cvv} onChange={(event) => setCvv(event.target.value)} className={style.value} type="text" />
-            </div>
+            <Field name="Номер*" value={pan} changeData={getCurrentPan} setValue={setPan} validate={checkPan} />
+            <Field
+              name="Срок*"
+              value={expireDate}
+              changeData={getCurrentExpireDate}
+              setValue={setExpireDate}
+              validate={checkExpireDate}
+            />
+            <Field name="CVV*" value={cvv} setValue={setCvv} validate={checkCvv} />
           </div>
         </form>
         <button

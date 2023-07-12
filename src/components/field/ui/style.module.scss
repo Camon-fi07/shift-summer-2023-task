@@ -1,0 +1,40 @@
+@import "components/app/ui/styles/colors.scss";
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.name {
+  color: $subtitle;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.errorText {
+  color: $error;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.value {
+  width: 100%;
+  padding-left: 12px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 20px;
+  &:focus {
+    border: 2px solid $background;
+    box-shadow: 0 0 5px 1px $default-purple;
+  }
+}
+
+.errorValue {
+  border: 3px solid $error !important;
+  box-shadow: 0 0 5px 1px $error !important;
+}
