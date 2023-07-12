@@ -1,0 +1,87 @@
+@import "components/app/ui/styles/colors.scss";
+.responseDisplay {
+  color: $text-color;
+  background-color: $modalBackground;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 48px;
+  position: relative;
+  border-radius: 24px;
+}
+.closeButton {
+  position: absolute;
+  right: 24px;
+  top: 10px;
+  font-size: 30px;
+  transform: rotate(45deg);
+  color: $text-color;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+.img {
+  align-self: center;
+  width: 65px;
+  height: 65px;
+}
+.information,
+.ticket {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticket {
+  align-items: center;
+  & span:first-child {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.24px;
+  }
+  & span:nth-child(2) {
+    color: $orange;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+  }
+}
+
+.property {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.description {
+  letter-spacing: 0.24px;
+  font-size: 24px;
+  font-weight: 500;
+  color: $subtitle;
+}
+.value {
+  font-size: 20px;
+  font-weight: 500;
+  color: $text-color;
+}
+.warning {
+  margin-top: 32px;
+  text-align: center;
+  color: $subtitle;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 762px) {
+  .closeButton {
+    top: 0;
+    left: 0;
+    align-self: flex-end;
+    position: static;
+  }
+}

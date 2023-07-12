@@ -1,6 +1,21 @@
 .filmPage {
   padding-bottom: 24px;
 }
+
+.modal {
+  width: 450px/1280px * 100%;
+  max-width: 600px;
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.muted {
+  opacity: 0.5;
+}
+
 .content {
   width: 80%;
   margin: 0 auto;
@@ -32,6 +47,12 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .modal {
+    width: 70%;
+  }
+}
+
 @media (max-width: 762px) {
   .gridOrder {
     grid-template-columns: 1fr;
@@ -39,5 +60,8 @@
       width: 60%;
       justify-self: center;
     }
+  }
+  .modal {
+    width: 100%;
   }
 }

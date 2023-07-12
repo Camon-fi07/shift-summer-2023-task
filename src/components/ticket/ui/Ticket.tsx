@@ -4,6 +4,7 @@ import { TicketInfo } from "../types/ticketInfo";
 import ticketIcon from "assets/ticket.svg";
 import style from "./style.module.scss";
 import { getSeanseInfo } from "utils/helpers/changeDate";
+import { OrderStatus } from "utils/consts/orderStatus";
 
 export const Ticket = (props: TicketInfo) => {
   const [price, setPrice] = useState(0);
@@ -15,25 +16,26 @@ export const Ticket = (props: TicketInfo) => {
       sum += element.cost;
       if (element.cost == 0) setIsError(true);
     });
+    if (sum === 0) setIsError(true);
     setPrice(sum);
   }, [props.places]);
   return (
     <div className={style.ticket}>
       <div className={style.information}>
         <span className={style.title}>{props.hallName} зал</span>
-        <div className={style.parametr}>
+        <div className={style.parameter}>
           <span className={style.description}>Фильм:</span>
           <span className={style.value}>
             {props.filmName} ({ageRating[props.ageRating]})
           </span>
         </div>
-        <div className={style.parametr}>
+        <div className={style.parameter}>
           <span className={style.description}>Дата и время:</span>
           <span className={style.value}>
             {getSeanseInfo(props.date)} {props.time}
           </span>
         </div>
-        <div className={style.parametr}>
+        <div className={style.parameter}>
           <span className={style.description}>Места:</span>
           <div className={style.places}>
             {props.places.map((element) => (
@@ -45,11 +47,14 @@ export const Ticket = (props: TicketInfo) => {
         </div>
       </div>
       <div className={style.purchase}>
-        <div className={`${style.parametr}`}>
+        <div className={`${style.parameter}`}>
           <span>Сумма: </span>
           <span>{price} руб</span>
         </div>
-        <button className={`${isError ? style.notAvailable : ""} ${style.buyButton}`}>
+        <button
+          onClick={() => props.setOrderStatus(OrderStatus.dataFilling)}
+          className={`${isError ? style.notAvailable : ""} ${style.buyButton}`}
+        >
           <span>Купить</span>
           <img src={ticketIcon} alt="" />
         </button>

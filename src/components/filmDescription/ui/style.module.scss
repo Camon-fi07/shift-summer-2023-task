@@ -7,14 +7,14 @@
     "img dopInf"
     "img score"
     "img text";
-  grid-template-columns: minmax(250px, 256px * 1.5) 2fr;
+  grid-template-columns: 256px 2fr;
   align-items: center;
   color: white;
   gap: 20px;
 }
 
 .img {
-  max-height: 376px * 1.5;
+  max-height: 376px;
   grid-area: img;
   border-radius: 8px;
   & img {
@@ -80,6 +80,9 @@
       "img"
       "text";
     grid-template-columns: 1fr;
-    justify-items: center;
+  }
+  .img {
+    justify-self: center;
+    max-height: 450px;
   }
 }

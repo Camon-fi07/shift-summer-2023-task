@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const useRequest = <T>(
+export const useGetRequest = <T>(
   url: string,
   pathToData: string,
 ): [T | undefined, React.Dispatch<React.SetStateAction<T | undefined>>] => {

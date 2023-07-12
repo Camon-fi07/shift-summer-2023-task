@@ -1,11 +1,11 @@
 import { FilmCard } from "components/filmCard";
 import { Film } from "utils/types/film";
 import { pathToBack } from "utils/consts/pathToBack";
-import { useRequest } from "utils/hooks/useRequest";
+import { useGetRequest } from "utils/hooks/useGetRequest";
 import "./style.scss";
 
 export const MainPage = () => {
-  const [films, setFilms] = useRequest<Film[]>(`${pathToBack}/cinema/today/`, "films");
+  const [films, setFilms] = useGetRequest<Film[]>(`${pathToBack}/cinema/today/`, "films");
   return (
     <div className="main">
       <div className="content">

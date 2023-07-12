@@ -1,3 +1,4 @@
+import { OrderStatus } from "./../../../utils/consts/orderStatus";
 export interface TicketInfo {
   filmName: string;
   ageRating: string;
@@ -5,4 +6,5 @@ export interface TicketInfo {
   time: string;
   hallName: string;
   places: { row: number; place: number; cost: number }[];
+  setOrderStatus: (newOrderStatus: OrderStatus) => void;
 }
