@@ -37,9 +37,17 @@
   width: 100%;
   padding-left: 12px;
   height: 40px;
-  border: 1px solid #949494;
   border-radius: 8px;
   font-size: 20px;
+  &:focus {
+    border: 2px solid $background;
+    box-shadow: 0 0 5px 1px $default-purple;
+  }
+}
+
+.errorValue {
+  border: 3px solid $error;
+  box-shadow: 0 0 5px 1px $error;
 }
 
 .submitButton {

@@ -33,13 +33,18 @@ export const UserData = (props: UserDataInfo) => {
       <h2 className={style.title}>Введите ваши данные</h2>
       <div className={style.property}>
         <h2 className={style.name}>Имя*</h2>
-        <input value={name} onChange={(event) => setName(event.target.value)} className={style.value} type="text" />
+        <input
+          value={name}
+          onChange={(event) => setName(event.target.value.trim())}
+          className={style.value}
+          type="text"
+        />
       </div>
       <div className={style.property}>
         <h2 className={style.name}>Фамилия*</h2>
         <input
           value={surname}
-          onChange={(event) => setSurname(event.target.value)}
+          onChange={(event) => setSurname(event.target.value.trim())}
           className={style.value}
           type="text"
         />
@@ -48,14 +53,19 @@ export const UserData = (props: UserDataInfo) => {
         <h2 className={style.name}>Отчество</h2>
         <input
           value={patronymic}
-          onChange={(event) => setPatronymic(event.target.value)}
+          onChange={(event) => setPatronymic(event.target.value.trim())}
           className={style.value}
           type="text"
         />
       </div>
       <div className={style.property}>
         <h2 className={style.name}>Телефон*</h2>
-        <input value={phone} onChange={(event) => setPhone(event.target.value)} className={style.value} type="tel" />
+        <input
+          value={phone}
+          onChange={(event) => setPhone(event.target.value.trim())}
+          className={style.value}
+          type="tel"
+        />
       </div>
 
       <Link className={style.submitButton} to={`/BankPage`}>
