@@ -31,8 +31,10 @@ export const FilmPage = () => {
   useEffect(() => {
     setFilmAndUserInfo((prevValue) => {
       prevValue.filmId = String(id!);
-      prevValue.seance.date = String(chosenDate);
-      prevValue.seance.time = String(chosenSession);
+      if (schedules) {
+        prevValue.seance.date = schedules![chosenDate].date;
+        prevValue.seance.time = schedules![chosenDate].seances[chosenSession].time;
+      }
       prevValue.tickets = chosenPlaces.map((element) => ({ row: element.row, column: element.place }));
       return prevValue;
     });

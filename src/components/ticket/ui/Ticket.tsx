@@ -52,7 +52,9 @@ export const Ticket = (props: TicketInfo) => {
           <span>{price} руб</span>
         </div>
         <button
-          onClick={() => props.setOrderStatus(OrderStatus.dataFilling)}
+          onClick={() => {
+            if (!isError) props.setOrderStatus(OrderStatus.dataFilling);
+          }}
           className={`${isError ? style.notAvailable : ""} ${style.buyButton}`}
         >
           <span>Купить</span>

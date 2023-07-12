@@ -6,7 +6,11 @@
   align-items: center;
   margin-bottom: 24px;
 }
-
+.logo {
+  img {
+    width: 100%;
+  }
+}
 .login {
   width: 120px;
   height: 40px;
@@ -15,9 +19,16 @@
   align-items: center;
   font-size: 18px;
   border: 2px solid whitesmoke;
+  border-radius: 8px;
 }
 @media (max-width: 762px) {
   .logo {
     width: 45%;
+    min-width: 200px;
+  }
+}
+@media (max-width: 360px) {
+  .login {
+    width: 75px;
   }
 }
