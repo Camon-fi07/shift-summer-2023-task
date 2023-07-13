@@ -1,189 +1,21 @@
 @import "components/app/ui/styles/colors.scss";
-.hall {
-}
-.screenTitle {
-  font-size: 20px;
-  text-align: center;
-  color: $text-color;
-  display: block;
-  margin-bottom: 5px;
-}
-.screen {
-  width: 100%;
-  height: 5px;
-  background-color: $text-color;
-  margin-bottom: 20px;
-  border-radius: 50%;
-}
 
-.places {
-  border: 1px solid $text-color;
-  border-radius: 5px;
-  padding: 20px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.row {
-  gap: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.place {
-  position: relative;
-  background-color: $text-color;
-  border-radius: 50%;
-  min-width: 30px;
-  min-height: 30px;
-  &:hover {
-    border: 3px solid $orange;
+.placeChoosing {
+  & > div:first-child {
+    display: block;
   }
-}
-
-.chosenPlace {
-  background-color: $orange;
-}
-
-.placeInformation {
-  width: 70px;
-  height: 60px;
-  z-index: 2;
-  border-radius: 10px;
-  background-color: $text-color;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -120%);
-  & span {
-    font-size: 15px;
-    color: black;
-  }
-}
-.placeCost {
-  font-size: 16px;
-  font-weight: 500;
-}
-.hidden {
-  display: none;
-}
-
-.payed {
-  background-color: $bought-place;
-}
-.blocked {
-  background-color: $blocked-place;
-}
-.payed,
-.blocked {
-  &:hover {
-    border: none;
-  }
-}
-.econom {
-  border: 3.5px solid $default-blue;
-}
-.comfort {
-  border: 3.5px solid $default-purple;
-}
-.rowNumber {
-  font-size: 20px;
-  color: $text-color;
-}
-
-.table {
-  display: none;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-  color: $text-color;
-}
-.title {
-  color: $orange;
-  font-family: Roboto;
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: 0.28px;
-  text-transform: uppercase;
-}
-.error {
-  font-size: 20px;
-  color: red;
-}
-.description,
-.selection {
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-}
-.description {
-  span {
-    font-size: 20px;
-    font-weight: 500;
-  }
-}
-.buttonText {
-  font-size: 24px;
-  font-weight: 500;
-  color: $text-color;
-}
-.dropList {
-  padding: 10px 0;
-  justify-self: center;
-  width: 130px;
-  max-height: 151px;
-  overflow-y: auto;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid $text-color;
-  border-radius: 16px;
-  & li {
-    cursor: pointer;
-    color: $text-color;
-    font-size: 24px;
-    font-weight: 500;
-  }
-}
-
-.addingPlace {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 3px solid $text-color;
-}
-.rowSelection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  & > button {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 3px solid $text-color;
-  }
-}
-.placeSelection {
-  & > button {
-    width: 130px;
-    height: 48px;
-    border-radius: 24px;
-    border: 3px solid $text-color;
+  & > div:nth-child(2) {
+    display: none;
   }
 }
 
 @media (max-width: 762px) {
-  .hall {
-    display: none;
-  }
-  .table {
-    display: flex;
+  .placeChoosing {
+    & > div:first-child {
+      display: none;
+    }
+    & > div:nth-child(2) {
+      display: flex;
+    }
   }
 }

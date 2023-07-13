@@ -12,9 +12,15 @@ export const Ticket = (props: TicketInfo) => {
   useEffect(() => {
     setIsError(false);
     let sum = 0;
-    props.places.forEach((element) => {
+    props.places.forEach((element, index) => {
       sum += element.cost;
       if (element.cost == 0) setIsError(true);
+      if (!isError) {
+        props.places.forEach((secondElement, secondIndex) => {
+          if (element.row == secondElement.row && element.place == secondElement.place && index != secondIndex)
+            setIsError(true);
+        });
+      }
     });
     if (sum === 0) setIsError(true);
     setPrice(sum);
