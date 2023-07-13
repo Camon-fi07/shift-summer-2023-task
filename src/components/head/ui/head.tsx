@@ -12,7 +12,7 @@ export const Head = () => {
         <img src={logoImage} alt="" />
       </Link>
       <div className={style.login}>
-        <Link to="/">Войти</Link>
+        <Link to="/auth-page">Войти</Link>
       </div>
     </header>
   );

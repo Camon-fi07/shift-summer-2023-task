@@ -7,7 +7,7 @@ import { ageRating } from "utils/consts/ageRating";
 export const FilmCard = (props: FilmInformation) => {
   return (
     <div className={style.filmCard}>
-      <Link to={`/filmPage/${props.id}`}>
+      <Link to={`/film-page/${props.id}`}>
         <div className={style.img}>
           <div className={style.ageRating}>
             <span>{ageRating[props.ageRating]}</span>

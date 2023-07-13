@@ -1,0 +1,41 @@
+@import "components/app/ui/styles/colors.scss";
+.authPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  color: $text-color;
+  font-size: 36px;
+  font-weight: 500;
+}
+.form {
+  width: 350px/1280px * 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.formButton {
+  height: 40px;
+  border-radius: 8px;
+  background-color: $orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & span {
+    color: $text-color;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+@media (max-width: 1000px) {
+  .form {
+    width: 50%;
+  }
+}
+@media (max-width: 762px) {
+  .form {
+    width: 70%;
+  }
+}

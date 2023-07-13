@@ -61,7 +61,7 @@ export const UserData = (props: UserDataInfo) => {
       <Field name={"Телефон*"} value={phone} changeData={deleteBackSpace} setValue={setPhone} validate={checkPhone} />
       <Link
         className={`${!isFormValid ? style.notAvailable : ""} ${style.submitButton}`}
-        to={`${isFormValid ? "/BankPage" : ""}`}
+        to={`${isFormValid ? "/bank-page" : ""}`}
       >
         <span>Далее</span>
       </Link>

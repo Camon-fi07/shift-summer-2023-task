@@ -10,28 +10,11 @@ import { OrderStatus } from "utils/consts/orderStatus";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { CreateCinemaPaymentDo } from "utils/types/film";
 import "./styles/App.scss";
+import { AuthPage } from "views/authPage/ui/AuthPage";
 
 function App() {
   const [orderStatus, setOrderStatus] = useState(OrderStatus.choosingSession);
-  const [filmAndUserInfo, setFilmAndUserInfo] = useState<CreateCinemaPaymentDo>({
-    filmId: "",
-    person: {
-      firstname: "",
-      lastname: "",
-      middlename: "",
-      phone: "",
-    },
-    debitCard: {
-      pan: "",
-      expireDate: "",
-      cvv: "",
-    },
-    seance: {
-      date: "",
-      time: "",
-    },
-    tickets: [],
-  });
+  const [filmAndUserInfo, setFilmAndUserInfo] = useState<CreateCinemaPaymentDo>({} as CreateCinemaPaymentDo);
   return (
     <div className="app">
       <orderStatusContext.Provider value={[orderStatus, setOrderStatus]}>
@@ -39,8 +22,9 @@ function App() {
         <filmAndUserInfoContext.Provider value={[filmAndUserInfo, setFilmAndUserInfo]}>
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/filmPage/:id" element={<FilmPage />} />
-            <Route path="/BankPage" element={<BankPage />} />
+            <Route path="/film-page/:id" element={<FilmPage />} />
+            <Route path="/bank-page" element={<BankPage />} />
+            <Route path="/auth-page" element={<AuthPage />} />
           </Routes>
         </filmAndUserInfoContext.Provider>
       </orderStatusContext.Provider>
