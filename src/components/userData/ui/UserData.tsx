@@ -3,7 +3,7 @@ import { UserDataInfo } from "../types/userDataInfo";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { Link } from "react-router-dom";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
-import { Field } from "components/field/ui/Field";
+import { Field } from "components/field";
 import { checkMiddleName, checkName, checkPhone, deleteBackSpace } from "utils/helpers/validate";
 import style from "./style.module.scss";
 

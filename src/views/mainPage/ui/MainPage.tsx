@@ -2,7 +2,7 @@ import { FilmCard } from "components/filmCard";
 import { Film } from "utils/types/film";
 import { pathToBack } from "utils/consts/pathToBack";
 import { useGetRequest } from "utils/hooks/useGetRequest";
-import { Load } from "components/load/ui/Load";
+import { Load } from "components/load";
 import "./style.scss";
 
 export const MainPage = () => {

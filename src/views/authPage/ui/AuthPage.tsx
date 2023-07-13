@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./style.module.scss";
-import { Field } from "components/field/ui/Field";
+import { Field } from "components/field";
 import { checkPhone } from "utils/helpers/validate";
 import { postRequest } from "utils/helpers/postRequest";
 import { auth, otpCode } from "utils/consts/pathToBack";

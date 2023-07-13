@@ -4,18 +4,18 @@ import { Film } from "utils/types/film";
 import { FilmDescription } from "components/filmDescription";
 import { Schedules } from "utils/types/schedules";
 import { pathToFilm } from "utils/consts/pathToBack";
-import { TimeTable } from "components/timeTable/ui/TimeTable";
-import { PlaceChoosing } from "components/placeChoosing/ui/PlaceChoosing";
-import { Ticket } from "components/ticket/ui/Ticket";
+import { TimeTable } from "components/timeTable";
+import { PlaceChoosing } from "components/placeChoosing";
+import { Ticket } from "components/ticket";
 import { useGetRequest } from "utils/hooks/useGetRequest";
-import { UserData } from "components/userData/ui/UserData";
+import { UserData } from "components/userData";
 import { OrderStatus } from "utils/consts/orderStatus";
-import { ResponseDisplay } from "components/responseDisplay/ui/ResponseDisplay";
+import { ResponseDisplay } from "components/responseDisplay";
 import { orderStatusContext } from "utils/context/orderStatus";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { setPayedPlaces } from "utils/helpers/setPayedPlaces";
 import style from "./style.module.scss";
-import { Load } from "components/load/ui/Load";
+import { Load } from "components/load";
 
 export const FilmPage = () => {
   const { id } = useParams();

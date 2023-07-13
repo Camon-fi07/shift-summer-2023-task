@@ -7,7 +7,7 @@ import { OrderStatus } from "utils/consts/orderStatus";
 import { OrderInfo } from "utils/types/orderInfo";
 import { orderStatusContext } from "utils/context/orderStatus";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
-import { Field } from "components/field/ui/Field";
+import { Field } from "components/field";
 import { checkCvv, checkExpireDate, checkPan, getCurrentExpireDate, getCurrentPan } from "utils/helpers/validate";
 import style from "./style.module.scss";
 import ShiftBank from "assets/SHIFTcard.svg";
