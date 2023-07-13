@@ -14,7 +14,25 @@ import { AuthPage } from "views/authPage/ui/AuthPage";
 
 function App() {
   const [orderStatus, setOrderStatus] = useState(OrderStatus.choosingSession);
-  const [filmAndUserInfo, setFilmAndUserInfo] = useState<CreateCinemaPaymentDo>({} as CreateCinemaPaymentDo);
+  const [filmAndUserInfo, setFilmAndUserInfo] = useState<CreateCinemaPaymentDo>({
+    filmId: "",
+    person: {
+      firstname: "",
+      lastname: "",
+      middlename: "",
+      phone: "",
+    },
+    debitCard: {
+      pan: "",
+      expireDate: "",
+      cvv: "",
+    },
+    seance: {
+      date: "",
+      time: "",
+    },
+    tickets: [],
+  });
   return (
     <div className="app">
       <orderStatusContext.Provider value={[orderStatus, setOrderStatus]}>

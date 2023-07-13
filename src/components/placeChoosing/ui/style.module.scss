@@ -72,13 +72,13 @@
   display: none;
 }
 
-.bought {
+.payed {
   background-color: $bought-place;
 }
 .blocked {
   background-color: $blocked-place;
 }
-.bought,
+.payed,
 .blocked {
   &:hover {
     border: none;

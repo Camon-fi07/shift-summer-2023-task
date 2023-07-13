@@ -13,12 +13,18 @@ import { OrderStatus } from "utils/consts/orderStatus";
 import { ResponseDisplay } from "components/responseDisplay/ui/ResponseDisplay";
 import { orderStatusContext } from "utils/context/orderStatus";
 import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { setPayedPlaces } from "utils/helpers/setPayedPlaces";
 import style from "./style.module.scss";
+import { Load } from "components/load/ui/Load";
 
 export const FilmPage = () => {
   const { id } = useParams();
   const [film, setFilm] = useGetRequest<Film>(`${pathToFilm}/${id}`, "film");
-  const [schedules, setSchedules] = useGetRequest<Schedules[]>(`${pathToFilm}/${id}/schedule`, "schedules");
+  const [schedules, setSchedules] = useGetRequest<Schedules[]>(
+    `${pathToFilm}/${id}/schedule`,
+    "schedules",
+    setPayedPlaces,
+  );
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
@@ -54,7 +60,7 @@ export const FilmPage = () => {
       )}
       <div className={`${orderStatus !== OrderStatus.choosingSession ? style.muted : ""} ${style.content}`}>
         {film === undefined ? (
-          <p className="">WAIT</p>
+          <Load />
         ) : (
           <FilmDescription
             name={film.name}
@@ -68,7 +74,7 @@ export const FilmPage = () => {
           />
         )}
         {film === undefined || schedules === undefined ? (
-          <p>WAIT</p>
+          <Load />
         ) : (
           <div className={style.userOrder}>
             <TimeTable

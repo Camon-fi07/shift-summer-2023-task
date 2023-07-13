@@ -10,7 +10,7 @@ export const AuthPage = () => {
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
   const [isPhoneSent, setIsPhoneSent] = useState(false);
-  let codeFromBack = {} as OtpCode;
+  const [codeFromBack, setCodeFromBack] = useState({} as OtpCode);
   useEffect(() => {}, [isPhoneSent]);
   return (
     <div className={style.authPage}>
@@ -30,10 +30,13 @@ export const AuthPage = () => {
             } else {
               postRequest<{ phone: string }, OtpCode>(`${otpCode}`, { phone: phone })
                 .then((res) => {
-                  codeFromBack = res;
+                  setCodeFromBack(res);
                 })
                 .catch((err) => {
-                  codeFromBack.success = false;
+                  setCodeFromBack((prevValue) => {
+                    prevValue.success = false;
+                    return prevValue;
+                  });
                 });
               setIsPhoneSent(true);
             }
