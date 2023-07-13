@@ -18,6 +18,8 @@ export const BankPage = () => {
   const [expireDate, setExpireDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
+  const navigate = useNavigate();
+  const [orderStatus, setOrderStatus] = useContext(orderStatusContext)!;
   useEffect(() => {
     if (checkPan(pan) == "right" && checkExpireDate(expireDate) == "right" && checkCvv(cvv) == "right")
       setIsFormValid(true);
@@ -30,8 +32,6 @@ export const BankPage = () => {
     });
   }, [pan, expireDate, cvv]);
 
-  const navigate = useNavigate();
-  const [orderStatus, setOrderStatus] = useContext(orderStatusContext)!;
   return (
     <div className={style.bankPage}>
       <div className={style.container}>
@@ -63,7 +63,9 @@ export const BankPage = () => {
                   navigate(-1);
                 })
                 .catch((err) => {
-                  sessionStorage.setItem("result", JSON.stringify({ success: false }));
+                  let result = {} as OrderInfo;
+                  result.success = false;
+                  sessionStorage.setItem("result", JSON.stringify(result));
                   setOrderStatus(OrderStatus.responseDisplay);
                   navigate(-1);
                 });
