@@ -3,5 +3,5 @@ export const ageRating = {
   PG: "7+",
   "PG-13": "13+",
   R: "17+",
-  "NC-17": "18+",
+  NC17: "18+",
 };

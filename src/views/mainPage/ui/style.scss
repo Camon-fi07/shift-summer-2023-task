@@ -15,6 +15,6 @@
   .films-list {
     justify-content: center;
     grid-auto-rows: auto;
-    grid-template-columns: minmax(320px, 0.65fr);
+    grid-template-columns: 320px;
   }
 }
