@@ -82,6 +82,11 @@
   }
 }
 
+.notAvailable {
+  cursor: auto;
+  background-color: $blocked-place;
+}
+
 @media (max-width: 1000px) {
   .container {
     width: 50%;

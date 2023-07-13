@@ -46,3 +46,7 @@
     text-align: center;
   }
 }
+.notAvailable {
+  cursor: auto;
+  background-color: $blocked-place;
+}

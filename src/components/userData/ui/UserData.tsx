@@ -13,7 +13,17 @@ export const UserData = (props: UserDataInfo) => {
   const [surname, setSurname] = useState("");
   const [patronymic, setPatronymic] = useState("");
   const [phone, setPhone] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
   useEffect(() => {
+    if (
+      checkName(name) == "right" &&
+      checkMiddleName(patronymic) == "right" &&
+      checkPhone(phone) == "right" &&
+      checkName(surname) == "right"
+    )
+      setIsFormValid(true);
+    else setIsFormValid(false);
+
     setFilmAndUserInfo((prevValue) => {
       prevValue.person.firstname = name;
       prevValue.person.lastname = surname;
@@ -49,8 +59,10 @@ export const UserData = (props: UserDataInfo) => {
         validate={checkMiddleName}
       />
       <Field name={"Телефон*"} value={phone} changeData={deleteBackSpace} setValue={setPhone} validate={checkPhone} />
-
-      <Link className={style.submitButton} to={`/BankPage`}>
+      <Link
+        className={`${!isFormValid ? style.notAvailable : ""} ${style.submitButton}`}
+        to={`${isFormValid ? "/BankPage" : ""}`}
+      >
         <span>Далее</span>
       </Link>
     </form>
