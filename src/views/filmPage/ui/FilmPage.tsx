@@ -11,11 +11,11 @@ import { useGetRequest } from "utils/hooks/useGetRequest";
 import { UserData } from "components/userData";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { ResponseDisplay } from "components/responseDisplay";
-import { orderStatusContext } from "utils/context/orderStatus";
-import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { OrderStatusContext } from "utils/context/orderStatus";
+import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { setPayedPlaces } from "utils/helpers/setPayedPlaces";
-import style from "./style.module.scss";
 import { Load } from "components/load";
+import style from "./style.module.scss";
 
 export const FilmPage = () => {
   const { id } = useParams();
@@ -28,8 +28,8 @@ export const FilmPage = () => {
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
-  const [orderStatus, setOrderStatus] = useContext(orderStatusContext)!;
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(filmAndUserInfoContext)!;
+  const [orderStatus, setOrderStatus] = useContext(OrderStatusContext)!;
+  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
 
   useEffect(() => {
     setChosenPlaces([]);

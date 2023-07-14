@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { UserDataInfo } from "../types/userDataInfo";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { Link } from "react-router-dom";
-import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { Field } from "components/field";
 import { checkMiddleName, checkName, checkPhone, deleteBackSpace } from "utils/helpers/validate";
 import style from "./style.module.scss";
 
 export const UserData = (props: UserDataInfo) => {
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(filmAndUserInfoContext)!;
+  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [patronymic, setPatronymic] = useState("");

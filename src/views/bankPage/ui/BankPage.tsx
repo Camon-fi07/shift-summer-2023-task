@@ -5,21 +5,21 @@ import { postRequest } from "utils/helpers/postRequest";
 import { pathToBack } from "utils/consts/pathToBack";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { OrderInfo } from "utils/types/orderInfo";
-import { orderStatusContext } from "utils/context/orderStatus";
-import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { OrderStatusContext } from "utils/context/orderStatus";
+import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { Field } from "components/field";
 import { checkCvv, checkExpireDate, checkPan, getCurrentExpireDate, getCurrentPan } from "utils/helpers/validate";
 import style from "./style.module.scss";
 import ShiftBank from "assets/SHIFTcard.svg";
 
 export const BankPage = () => {
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(filmAndUserInfoContext)!;
+  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
   const [pan, setPan] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
-  const [orderStatus, setOrderStatus] = useContext(orderStatusContext)!;
+  const [orderStatus, setOrderStatus] = useContext(OrderStatusContext)!;
   useEffect(() => {
     if (checkPan(pan) == "right" && checkExpireDate(expireDate) == "right" && checkCvv(cvv) == "right")
       setIsFormValid(true);

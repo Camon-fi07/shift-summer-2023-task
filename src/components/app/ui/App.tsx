@@ -4,10 +4,9 @@ import { Head } from "components/head";
 import { MainPage } from "views/mainPage";
 import { FilmPage } from "views/filmPage/ui/FilmPage";
 import { BankPage } from "views/bankPage/ui/BankPage";
-import { orderStatusContext } from "utils/context/orderStatus";
+import { OrderStatusContext } from "utils/context/orderStatus";
 import { OrderStatus } from "utils/consts/orderStatus";
-
-import { filmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { CreateCinemaPaymentDo } from "utils/types/film";
 import "./styles/App.scss";
 import { AuthPage } from "views/authPage/ui/AuthPage";
@@ -35,17 +34,17 @@ function App() {
   });
   return (
     <div className="app">
-      <orderStatusContext.Provider value={[orderStatus, setOrderStatus]}>
+      <OrderStatusContext.Provider value={[orderStatus, setOrderStatus]}>
         <Head />
-        <filmAndUserInfoContext.Provider value={[filmAndUserInfo, setFilmAndUserInfo]}>
+        <FilmAndUserInfoContext.Provider value={[filmAndUserInfo, setFilmAndUserInfo]}>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/film-page/:id" element={<FilmPage />} />
             <Route path="/bank-page" element={<BankPage />} />
             <Route path="/auth-page" element={<AuthPage />} />
           </Routes>
-        </filmAndUserInfoContext.Provider>
-      </orderStatusContext.Provider>
+        </FilmAndUserInfoContext.Provider>
+      </OrderStatusContext.Provider>
     </div>
   );
 }
