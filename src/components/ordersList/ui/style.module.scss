@@ -1,0 +1,65 @@
+@import "components/app/ui/styles/colors.scss";
+.orders_list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.order {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.date {
+  display: flex;
+  justify-content: space-between;
+  & span {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.name {
+  text-align: center;
+  color: $text-color;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.tickets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  & span {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.order_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  width: 88px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: green;
+  & span {
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+.order_number {
+  color: green;
+  font-size: 16px;
+  font-weight: 500;
+  & span {
+    font-weight: 700;
+  }
+}

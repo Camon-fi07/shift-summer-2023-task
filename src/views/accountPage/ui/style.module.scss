@@ -1,0 +1,31 @@
+@import "components/app/ui/styles/colors.scss";
+.account_page {
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "info line tickets";
+  gap: 10px;
+  grid-template-columns: 2fr 0.1fr 2fr;
+  & > form:nth-child(2) {
+    grid-area: info;
+  }
+}
+.title {
+  text-align: center;
+  grid-area: title;
+  color: $text-color;
+  font-size: 36px;
+  font-weight: 500;
+}
+.line {
+  grid-area: line;
+  stroke-width: 2px;
+  stroke: $subtitle;
+  min-height: 100%;
+  width: 2px;
+  & path {
+    stroke: $subtitle;
+    stroke-width: 2px;
+    stroke-dasharray: 8 8;
+  }
+}

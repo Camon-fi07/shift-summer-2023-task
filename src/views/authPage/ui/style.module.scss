@@ -29,6 +29,21 @@
     font-weight: 500;
   }
 }
+
+.auth_info {
+  font-size: 24px;
+  text-align: center;
+  color: $text-color;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: $error;
+}
+
 @media (max-width: 1000px) {
   .form {
     width: 50%;

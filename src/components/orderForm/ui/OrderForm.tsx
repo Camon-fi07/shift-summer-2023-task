@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { UserDataInfo } from "../types/userDataInfo";
+import { OrderFormInfo } from "../types/orderFormInfo";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { Link } from "react-router-dom";
 import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
@@ -7,7 +7,7 @@ import { Field } from "components/field";
 import { checkMiddleName, checkName, checkPhone, deleteBackSpace } from "utils/helpers/validate";
 import style from "./style.module.scss";
 
-export const UserData = (props: UserDataInfo) => {
+export const OrderForm = (props: OrderFormInfo) => {
   const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -34,7 +34,7 @@ export const UserData = (props: UserDataInfo) => {
   }, [name, surname, patronymic, phone]);
 
   return (
-    <form className={style.user_data} onSubmit={() => console.log()}>
+    <form className={style.order_form} onSubmit={() => console.log()}>
       <button
         type="button"
         onClick={() => props.setOrderStatus(OrderStatus.choosingSession)}

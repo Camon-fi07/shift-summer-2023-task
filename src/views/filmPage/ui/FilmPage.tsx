@@ -8,7 +8,7 @@ import { TimeTable } from "components/timeTable";
 import { PlaceChoosing } from "components/placeChoosing";
 import { Ticket } from "components/ticket";
 import { useGetRequest } from "utils/hooks/useGetRequest";
-import { UserData } from "components/userData";
+import { OrderForm } from "components/orderForm";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { ResponseDisplay } from "components/responseDisplay";
 import { OrderStatusContext } from "utils/context/orderStatus";
@@ -50,7 +50,7 @@ export const FilmPage = () => {
       {orderStatus !== OrderStatus.choosingSession ? (
         <div className={style.modal}>
           {orderStatus === OrderStatus.dataFilling ? (
-            <UserData id={id!} setOrderStatus={setOrderStatus} />
+            <OrderForm id={id!} setOrderStatus={setOrderStatus} />
           ) : (
             <ResponseDisplay filmName={film?.name || ""} setOrderStatus={setOrderStatus} />
           )}

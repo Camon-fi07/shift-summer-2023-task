@@ -1,0 +1,21 @@
+@import "components/app/ui/styles/colors.scss";
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.refresh {
+  width: 100%;
+  background-color: $orange;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    color: $text-color;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

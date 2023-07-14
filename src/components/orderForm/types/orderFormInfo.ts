@@ -1,6 +1,6 @@
 import { OrderStatus } from "utils/consts/orderStatus";
 
-export interface UserDataInfo {
+export interface OrderFormInfo {
   id: string;
   setOrderStatus: (newOrderStatus: OrderStatus) => void;
 }

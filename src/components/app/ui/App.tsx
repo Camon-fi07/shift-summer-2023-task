@@ -10,6 +10,7 @@ import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { CreateCinemaPaymentDo } from "utils/types/film";
 import "./styles/App.scss";
 import { AuthPage } from "views/authPage/ui/AuthPage";
+import { AccountPage } from "views/accountPage/ui/AccountPage";
 
 function App() {
   const [orderStatus, setOrderStatus] = useState(OrderStatus.choosingSession);
@@ -42,6 +43,7 @@ function App() {
             <Route path="/film-page/:id" element={<FilmPage />} />
             <Route path="/bank-page" element={<BankPage />} />
             <Route path="/auth-page" element={<AuthPage />} />
+            <Route path="/account-page" element={<AccountPage />} />
           </Routes>
         </FilmAndUserInfoContext.Provider>
       </OrderStatusContext.Provider>
