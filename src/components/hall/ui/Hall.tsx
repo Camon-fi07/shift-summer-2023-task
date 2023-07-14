@@ -1,21 +1,17 @@
-import { useState } from "react";
 import { PlacesInfo } from "utils/types/placesInfo";
 import style from "./style.module.scss";
 
 export const Hall = (props: PlacesInfo) => {
-  const [hoverPlace, setHoverPlace] = useState<{ row: number; place: number }>({ row: -1, place: -1 });
   return (
     <div className={style.hall}>
-      <span className={style.screenTitle}>Экран</span>
+      <span className={style.screen_title}>Экран</span>
       <div className={style.screen}></div>
       <div className={style.places}>
         {props.places.map((row, rowIndex) => (
           <div className={style.row}>
-            <span className={style.rowNumber}>{rowIndex + 1}</span>
+            <span className={style.row_number}>{rowIndex + 1}</span>
             {row.map((place, placeIndex) => (
               <button
-                onMouseEnter={() => setHoverPlace({ row: rowIndex, place: placeIndex })}
-                onMouseLeave={() => setHoverPlace({ row: -1, place: -1 })}
                 onClick={() => {
                   const chosenPlace = {
                     row: rowIndex + 1,
@@ -37,24 +33,18 @@ export const Hall = (props: PlacesInfo) => {
                 }}
                 className={`${
                   props.chosenPlaces.some((element) => element.row - 1 == rowIndex && element.place - 1 == placeIndex)
-                    ? style.chosenPlace
+                    ? style.chosen_place
                     : ""
                 } ${style.place} ${style[place.type.toLowerCase()]}`}
               >
-                <div
-                  className={`${
-                    hoverPlace.place === placeIndex && hoverPlace.row == rowIndex
-                      ? style.placeInformation
-                      : style.hidden
-                  }`}
-                >
+                <div className={style.place_information}>
                   <span>{rowIndex + 1} ряд</span>
                   <span>{placeIndex + 1} место</span>
-                  <span className={style.placeCost}>{place.price} Р</span>
+                  <span className={style.place_cost}>{place.price} Р</span>
                 </div>
               </button>
             ))}
-            <span className={style.rowNumber}>{rowIndex + 1}</span>
+            <span className={style.row_number}>{rowIndex + 1}</span>
           </div>
         ))}
       </div>

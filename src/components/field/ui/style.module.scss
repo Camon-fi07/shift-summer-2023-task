@@ -12,7 +12,7 @@
   font-weight: 500;
 }
 
-.errorText {
+.error_text {
   color: $error;
   font-size: 14px;
   font-weight: 500;
@@ -34,7 +34,7 @@
   }
 }
 
-.errorValue {
+.error_value {
   border: 3px solid $error !important;
   box-shadow: 0 0 5px 1px $error !important;
 }

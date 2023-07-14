@@ -34,11 +34,11 @@ export const UserData = (props: UserDataInfo) => {
   }, [name, surname, patronymic, phone]);
 
   return (
-    <form className={style.userData} onSubmit={() => console.log()}>
+    <form className={style.user_data} onSubmit={() => console.log()}>
       <button
         type="button"
         onClick={() => props.setOrderStatus(OrderStatus.choosingSession)}
-        className={style.closeButton}
+        className={style.close_button}
       >
         +
       </button>
@@ -60,7 +60,7 @@ export const UserData = (props: UserDataInfo) => {
       />
       <Field name={"Телефон*"} value={phone} changeData={deleteBackSpace} setValue={setPhone} validate={checkPhone} />
       <Link
-        className={`${!isFormValid ? style.notAvailable : ""} ${style.submitButton}`}
+        className={`${!isFormValid ? style.not_available : ""} ${style.submit_button}`}
         to={`${isFormValid ? "/bank-page" : ""}`}
       >
         <span>Далее</span>

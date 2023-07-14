@@ -46,7 +46,7 @@ export const FilmPage = () => {
     });
   }, [orderStatus]);
   return (
-    <div className={style.filmPage}>
+    <div className={style.film_page}>
       {orderStatus !== OrderStatus.choosingSession ? (
         <div className={style.modal}>
           {orderStatus === OrderStatus.dataFilling ? (
@@ -76,7 +76,7 @@ export const FilmPage = () => {
         {film === undefined || schedules === undefined ? (
           <Load />
         ) : (
-          <div className={style.userOrder}>
+          <div className={style.user_order}>
             <TimeTable
               chosenDate={chosenDate}
               setChosenDate={setChosenDate}
@@ -92,7 +92,7 @@ export const FilmPage = () => {
             <div
               className={`${
                 schedules[chosenDate].seances[chosenSession].hall.places[0].length <= 10 ? style.row : style.column
-              } ${style.gridOrder}`}
+              } ${style.grid_order}`}
             >
               <PlaceChoosing
                 chosenPlaces={chosenPlaces}

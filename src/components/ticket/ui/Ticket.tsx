@@ -61,7 +61,7 @@ export const Ticket = (props: TicketInfo) => {
           onClick={() => {
             if (!isError) props.setOrderStatus(OrderStatus.dataFilling);
           }}
-          className={`${isError ? style.notAvailable : ""} ${style.buyButton}`}
+          className={`${isError ? style.not_available : ""} ${style.buy_button}`}
         >
           <span>Купить</span>
           <img src={ticketIcon} alt="" />

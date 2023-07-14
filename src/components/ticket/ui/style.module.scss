@@ -57,7 +57,7 @@
   font-weight: 700;
 }
 
-.buyButton {
+.buy_button {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -73,7 +73,7 @@
     font-weight: 500;
   }
 }
-.notAvailable {
+.not_available {
   cursor: auto;
   background-color: $blocked-place;
 }

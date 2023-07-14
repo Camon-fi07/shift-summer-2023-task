@@ -1,7 +1,7 @@
 @import "components/app/ui/styles/colors.scss";
 .hall {
 }
-.screenTitle {
+.screen_title {
   font-size: 20px;
   text-align: center;
   color: $text-color;
@@ -39,20 +39,23 @@
   min-height: 30px;
   &:hover {
     border: 3px solid $orange;
+    & div {
+      display: flex;
+    }
   }
 }
 
-.chosenPlace {
+.chosen_place {
   background-color: $orange;
 }
 
-.placeInformation {
+.place_information {
   width: 70px;
   height: 60px;
   z-index: 2;
   border-radius: 10px;
   background-color: $text-color;
-  display: flex;
+  display: none;
   justify-content: space-around;
   flex-direction: column;
   position: absolute;
@@ -64,12 +67,9 @@
     color: black;
   }
 }
-.placeCost {
+.place_cost {
   font-size: 16px;
   font-weight: 500;
-}
-.hidden {
-  display: none;
 }
 
 .payed {
@@ -90,7 +90,7 @@
 .comfort {
   border: 3.5px solid $default-purple;
 }
-.rowNumber {
+.row_number {
   font-size: 20px;
   color: $text-color;
 }

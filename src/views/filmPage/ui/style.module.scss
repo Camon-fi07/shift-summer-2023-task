@@ -1,4 +1,4 @@
-.filmPage {
+.film_page {
   padding-bottom: 24px;
 }
 
@@ -25,11 +25,11 @@
   gap: 60px;
 }
 
-.userOrder {
+.user_order {
   width: 100%;
 }
 
-.gridOrder {
+.grid_order {
   display: grid;
   gap: 15px;
   margin-top: 40px;
@@ -48,13 +48,16 @@
 }
 
 @media (max-width: 1000px) {
+  .content {
+    width: 90%;
+  }
   .modal {
     width: 70%;
   }
 }
 
 @media (max-width: 762px) {
-  .gridOrder {
+  .grid_order {
     grid-template-columns: 1fr;
     & > div:nth-child(2) {
       width: 60%;

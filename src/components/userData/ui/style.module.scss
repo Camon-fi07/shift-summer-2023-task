@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.userData {
+.user_data {
   color: $text-color;
   background-color: $modalBackground;
   display: flex;
@@ -9,7 +9,7 @@
   position: relative;
   border-radius: 24px;
 }
-.closeButton {
+.close_button {
   position: absolute;
   right: 24px;
   top: 10px;
@@ -23,12 +23,12 @@
   font-weight: 600;
 }
 
-.errorValue {
+.error_value {
   border: 3px solid $error;
   box-shadow: 0 0 5px 1px $error;
 }
 
-.submitButton {
+.submit_button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,7 @@
     text-align: center;
   }
 }
-.notAvailable {
+.not_available {
   cursor: auto;
   background-color: $blocked-place;
 }

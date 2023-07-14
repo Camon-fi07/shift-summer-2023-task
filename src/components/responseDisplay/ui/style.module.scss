@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.responseDisplay {
+.response_display {
   color: $text-color;
   background-color: $modalBackground;
   display: flex;
@@ -9,7 +9,7 @@
   position: relative;
   border-radius: 24px;
 }
-.closeButton {
+.close_button {
   position: absolute;
   right: 24px;
   top: 10px;
@@ -85,7 +85,7 @@
 }
 
 @media (max-width: 762px) {
-  .closeButton {
+  .close_button {
     top: 0;
     left: 0;
     align-self: flex-end;

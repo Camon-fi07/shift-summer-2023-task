@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.bankPage {
+.bank_page {
   width: 100%;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@
   align-items: center;
 }
 
-.cardData {
+.card_data {
   display: grid;
   grid-template-areas:
     "number number"
@@ -82,7 +82,7 @@
   }
 }
 
-.notAvailable {
+.not_available {
   cursor: auto;
   background-color: $blocked-place;
 }

@@ -14,9 +14,9 @@ export const Field = (props: FieldInfo) => {
           props.setValue(value);
         }}
         value={props.value}
-        className={`${validateResult !== "right" ? style.errorValue : ""} ${style.value}`}
+        className={`${validateResult !== "right" ? style.error_value : ""} ${style.value}`}
       />
-      <span className={`${validateResult !== "right" ? style.errorText : style.hidden}`}>{validateResult}</span>
+      <span className={`${validateResult !== "right" ? style.error_text : style.hidden}`}>{validateResult}</span>
     </div>
   );
 };

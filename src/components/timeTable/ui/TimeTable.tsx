@@ -4,12 +4,12 @@ import style from "./style.module.scss";
 
 export const TimeTable = (props: Seance) => {
   return (
-    <div className={style.timeTable}>
+    <div className={style.time_table}>
       <h2 className={style.title}>Расписание</h2>
-      <div className={style.dateList}>
+      <div className={style.date_list}>
         {props.sessions.map((element, index) => (
           <button
-            className={props.chosenDate == index ? style.activeDate : ""}
+            className={props.chosenDate == index ? style.active_date : ""}
             onClick={() => {
               props.setChosenDate(index);
               props.setChosenSession(0);
@@ -19,11 +19,11 @@ export const TimeTable = (props: Seance) => {
           </button>
         ))}
       </div>
-      <div className={style.timeList}>
+      <div className={style.time_list}>
         {props.sessions[props.chosenDate].availableTime.map((time, index) => {
           return (
             <button
-              className={`${props.chosenSession == index ? style.activeSession : ""}  ${style.seanseTime}`}
+              className={`${props.chosenSession == index ? style.active_session : ""}  ${style.seanse_time}`}
               onClick={() => {
                 props.setChosenSession(index);
               }}

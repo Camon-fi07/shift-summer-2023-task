@@ -5,7 +5,7 @@ import style from "./style.module.scss";
 
 export const PlaceChoosing = (props: PlacesInfo) => {
   return (
-    <section className={style.placeChoosing}>
+    <section className={style.place_choosing}>
       <Hall chosenPlaces={props.chosenPlaces} setChosenPlaces={props.setChosenPlaces} places={props.places} />
       <PlacesList chosenPlaces={props.chosenPlaces} setChosenPlaces={props.setChosenPlaces} places={props.places} />
     </section>

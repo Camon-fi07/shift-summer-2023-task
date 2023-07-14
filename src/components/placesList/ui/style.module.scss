@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.placesList {
+.places_list {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -33,10 +33,10 @@
   grid-template-rows: 1fr;
 }
 
-.placeDeleting {
+.place_deleting {
   position: absolute;
   height: 50%;
-  right: -20px;
+  right: 0px;
   top: 0;
   span {
     color: $text-color;
@@ -50,12 +50,12 @@
     font-weight: 500;
   }
 }
-.buttonText {
+.button_text {
   font-size: 24px;
   font-weight: 500;
   color: $text-color;
 }
-.dropList {
+.drop_list {
   padding: 10px 0;
   justify-self: center;
   width: 130px;
@@ -75,13 +75,13 @@
   }
 }
 
-.addingPlace {
+.adding_place {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   border: 3px solid $text-color;
 }
-.rowSelection {
+.row_selection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +92,7 @@
     border: 3px solid $text-color;
   }
 }
-.placeSelection {
+.place_selection {
   & > button {
     width: 130px;
     height: 48px;

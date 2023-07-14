@@ -33,14 +33,14 @@ export const BankPage = () => {
   }, [pan, expireDate, cvv]);
 
   return (
-    <div className={style.bankPage}>
+    <div className={style.bank_page}>
       <div className={style.container}>
         <h2 className={style.title}>Введите данные карты для оплаты</h2>
         <div className={style.card}>
           <div className={style.logo}>
             <img src={ShiftBank} alt="" />
           </div>
-          <div className={style.cardData}>
+          <div className={style.card_data}>
             <Field name="Номер*" value={pan} changeData={getCurrentPan} setValue={setPan} validate={checkPan} />
             <Field
               name="Срок*"
@@ -71,7 +71,7 @@ export const BankPage = () => {
                 });
             }
           }}
-          className={`${!isFormValid ? style.notAvailable : ""} ${style.send}`}
+          className={`${!isFormValid ? style.not_available : ""} ${style.send}`}
         >
           <span>Оплатить</span>
         </button>

@@ -5,7 +5,7 @@ import style from "./style.module.scss";
 
 export const FilmDescription = (props: DescriptionOfFilm) => {
   return (
-    <div className={style.filmDescription}>
+    <div className={style.film_description}>
       <div className={style.img}>
         <img className={style.img} src={`${pathToBack}${props.img}`} alt="" />
       </div>

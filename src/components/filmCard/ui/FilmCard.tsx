@@ -6,10 +6,10 @@ import { ageRating } from "utils/consts/ageRating";
 
 export const FilmCard = (props: FilmInformation) => {
   return (
-    <div className={style.filmCard}>
+    <div className={style.film_card}>
       <Link to={`/film-page/${props.id}`}>
         <div className={style.img}>
-          <div className={style.ageRating}>
+          <div className={style.age_rating}>
             <span>{ageRating[props.ageRating]}</span>
           </div>
           <img src={`${pathToBack}${props.img}`} alt="" />

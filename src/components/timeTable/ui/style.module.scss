@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.timeTable {
+.time_table {
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -13,7 +13,7 @@
   text-transform: uppercase;
   font-size: 40px;
 }
-.dateList {
+.date_list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -42,7 +42,7 @@
     }
   }
 }
-.timeList {
+.time_list {
   color: white;
   display: flex;
   flex-wrap: wrap;
@@ -52,7 +52,7 @@
   justify-content: space-around;
 }
 
-.seanseTime {
+.seanse_time {
   width: 30%;
   min-width: 120px;
   height: 50px;
@@ -73,13 +73,11 @@
     background-color: $hover-blue;
   }
 }
-.activeSession {
+.active_session {
   background-color: $default-blue;
 }
-.startTime {
-  transform: translate(0, 20px);
-}
-.activeDate {
+
+.active_date {
   height: 64px !important;
   width: 176px/1040px * 100% !important;
   background-color: $default-purple !important;

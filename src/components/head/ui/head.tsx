@@ -11,9 +11,9 @@ export const Head = () => {
       <Link onClick={() => setOrderStatusNow(OrderStatus.choosingSession)} className={style.logo} to="/">
         <img src={logoImage} alt="" />
       </Link>
-      <div className={style.login}>
-        <Link to="/auth-page">Войти</Link>
-      </div>
+      <Link className={style.login} to="/auth-page">
+        Войти
+      </Link>
     </header>
   );
 };

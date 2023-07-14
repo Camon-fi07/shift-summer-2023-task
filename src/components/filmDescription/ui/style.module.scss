@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.filmDescription {
+.film_description {
   display: grid;
   grid-template-areas:
     "img title"
@@ -71,7 +71,7 @@
 }
 
 @media (max-width: 1000px) {
-  .filmDescription {
+  .film_description {
     grid-template-areas:
       "title"
       "directors"

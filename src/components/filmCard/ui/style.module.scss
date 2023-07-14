@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.filmCard {
+.film_card {
   display: flex;
   flex-direction: column;
 }
@@ -64,7 +64,7 @@
   }
 }
 
-.ageRating {
+.age_rating {
   background-color: $modalBackground;
   width: 50px;
   height: 36px;

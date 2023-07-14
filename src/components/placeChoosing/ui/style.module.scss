@@ -1,6 +1,6 @@
 @import "components/app/ui/styles/colors.scss";
 
-.placeChoosing {
+.place_choosing {
   & > div:first-child {
     display: block;
   }
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 762px) {
-  .placeChoosing {
+  .place_choosing {
     & > div:first-child {
       display: none;
     }

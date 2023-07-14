@@ -5,7 +5,7 @@ import style from "./style.module.scss";
 export const PlacesList = (props: PlacesInfo) => {
   const [openList, setOpenList] = useState<{ isRow: boolean; index: number }>({ isRow: true, index: -1 });
   return (
-    <div className={style.placesList}>
+    <div className={style.places_list}>
       <h2 className={style.title}>Выбор мест</h2>
       <div className={style.description}>
         <span>ряд</span>
@@ -13,7 +13,7 @@ export const PlacesList = (props: PlacesInfo) => {
       </div>
       {props.chosenPlaces.map((element, index) => (
         <div className={style.selection}>
-          <div className={style.rowSelection}>
+          <div className={style.row_selection}>
             <button
               onClick={() =>
                 openList.isRow && openList.index == index
@@ -21,9 +21,9 @@ export const PlacesList = (props: PlacesInfo) => {
                   : setOpenList({ isRow: true, index: index })
               }
             >
-              <span className={style.buttonText}>{element.row}</span>
+              <span className={style.button_text}>{element.row}</span>
             </button>
-            <ul className={openList.isRow && openList.index == index ? style.dropList : style.hidden}>
+            <ul className={openList.isRow && openList.index == index ? style.drop_list : style.hidden}>
               {props.places.map((row, rowIndex) => (
                 <li
                   onClick={() => {
@@ -46,7 +46,7 @@ export const PlacesList = (props: PlacesInfo) => {
               ))}
             </ul>
           </div>
-          <div className={style.placeSelection}>
+          <div className={style.place_selection}>
             <button
               onClick={() =>
                 !openList.isRow && openList.index == index
@@ -54,9 +54,9 @@ export const PlacesList = (props: PlacesInfo) => {
                   : setOpenList({ isRow: false, index: index })
               }
             >
-              <span className={style.buttonText}>{element.place}</span>
+              <span className={style.button_text}>{element.place}</span>
             </button>
-            <ul className={!openList.isRow && openList.index == index ? style.dropList : style.hidden}>
+            <ul className={!openList.isRow && openList.index == index ? style.drop_list : style.hidden}>
               {props.places[element.row - 1].map((place, placeIndex) => (
                 <li
                   onClick={() => {
@@ -83,7 +83,7 @@ export const PlacesList = (props: PlacesInfo) => {
             onClick={() => {
               props.setChosenPlaces(props.chosenPlaces.filter((secondElement, secondIndex) => secondIndex != index));
             }}
-            className={style.placeDeleting}
+            className={style.place_deleting}
           >
             <span>-</span>
           </button>
@@ -98,10 +98,10 @@ export const PlacesList = (props: PlacesInfo) => {
         </div>
       ))}
       <button
-        className={style.addingPlace}
+        className={style.adding_place}
         onClick={() => props.setChosenPlaces([...props.chosenPlaces, { row: 1, place: 1, cost: 0 }])}
       >
-        <span className={style.buttonText}>+</span>
+        <span className={style.button_text}>+</span>
       </button>
     </div>
   );

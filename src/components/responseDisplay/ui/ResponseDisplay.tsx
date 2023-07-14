@@ -7,11 +7,11 @@ import style from "./style.module.scss";
 export const ResponseDisplay = (props: { filmName: string; setOrderStatus: (newOrderStatus: OrderStatus) => void }) => {
   const result: OrderInfo = JSON.parse(sessionStorage.getItem("result")!);
   return (
-    <div className={style.responseDisplay}>
+    <div className={style.response_display}>
       <button
         type="button"
         onClick={() => props.setOrderStatus(OrderStatus.choosingSession)}
-        className={style.closeButton}
+        className={style.close_button}
       >
         +
       </button>

@@ -1,5 +1,5 @@
 @import "components/app/ui/styles/colors.scss";
-.authPage {
+.auth_page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@
   flex-direction: column;
   gap: 40px;
 }
-.formButton {
+.form_button {
   height: 40px;
   border-radius: 8px;
   background-color: $orange;
