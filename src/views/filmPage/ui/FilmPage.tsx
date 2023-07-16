@@ -12,7 +12,7 @@ import { OrderForm } from "components/orderForm";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { ResponseDisplay } from "components/responseDisplay";
 import { OrderStatusContext } from "utils/context/orderStatus";
-import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { OrderInfoContext } from "utils/context/orderInfo";
 import { setPayedPlaces } from "utils/helpers/setPayedPlaces";
 import { Load } from "components/load";
 import style from "./style.module.scss";
@@ -29,19 +29,22 @@ export const FilmPage = () => {
   const [chosenSession, setChosenSession] = useState(0);
   const [chosenPlaces, setChosenPlaces] = useState<{ row: number; place: number; cost: number }[]>([]);
   const [orderStatus, setOrderStatus] = useContext(OrderStatusContext)!;
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
+  const [orderInfo, setOrderInfo] = useContext(OrderInfoContext)!;
 
   useEffect(() => {
     setChosenPlaces([]);
   }, [chosenSession, chosenDate]);
   useEffect(() => {
-    setFilmAndUserInfo((prevValue) => {
-      prevValue.filmId = String(id!);
+    setOrderInfo((prevValue) => {
+      prevValue.createCinemaPaymentDo.filmId = String(id!);
       if (schedules) {
-        prevValue.seance.date = schedules![chosenDate].date;
-        prevValue.seance.time = schedules![chosenDate].seances[chosenSession].time;
+        prevValue.createCinemaPaymentDo.seance.date = schedules![chosenDate].date;
+        prevValue.createCinemaPaymentDo.seance.time = schedules![chosenDate].seances[chosenSession].time;
       }
-      prevValue.tickets = chosenPlaces.map((element) => ({ row: element.row, column: element.place }));
+      prevValue.createCinemaPaymentDo.tickets = chosenPlaces.map((element) => ({
+        row: element.row,
+        column: element.place,
+      }));
       return prevValue;
     });
   }, [orderStatus]);

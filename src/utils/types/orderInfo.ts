@@ -1,4 +1,24 @@
-export interface OrderInfo {
+import { person } from "./user";
+
+export interface CreateCinemaPaymentDo {
+  filmId: string;
+  person: person;
+  debitCard: {
+    pan: string;
+    expireDate: string;
+    cvv: string;
+  };
+  seance: {
+    date: string;
+    time: string;
+  };
+  tickets: {
+    row: number;
+    column: number;
+  }[];
+}
+
+export interface OrderResult {
   success: boolean;
   reason: string;
   order: {
@@ -16,4 +36,9 @@ export interface OrderInfo {
     phone: string;
     status: string;
   };
+}
+
+export interface OrderInfo {
+  createCinemaPaymentDo: CreateCinemaPaymentDo;
+  result: OrderResult;
 }

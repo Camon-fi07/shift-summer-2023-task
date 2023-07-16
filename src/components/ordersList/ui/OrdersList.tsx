@@ -10,7 +10,7 @@ export const OrdersList = (props: Orders) => {
             <span>{element.tickets[0].seance.date}</span>
             <span>{element.tickets[0].seance.time}</span>
           </div>
-          <h2 className={style.name}>{element.filmName}</h2>
+          <h2 className={style.name}>{element.tickets[0].filmId}</h2>
           <div className={style.tickets}>
             {element.tickets.map((element) => (
               <span className={style.place}>

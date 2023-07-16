@@ -1,6 +1,6 @@
 export interface Account {
   success: boolean;
-  reason: string;
+  reason?: string;
   user: {
     phone: string;
     firstname: string;
@@ -10,4 +10,16 @@ export interface Account {
     city: string;
   };
   token: string;
+}
+
+export interface person {
+  firstname: string;
+  lastname: string;
+  middlename: string;
+  phone: string;
+}
+
+export interface backendUserInfo {
+  phone: string;
+  id: string;
 }

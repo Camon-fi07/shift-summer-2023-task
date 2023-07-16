@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { OrderFormInfo } from "../types/orderFormInfo";
 import { OrderStatus } from "utils/consts/orderStatus";
 import { Link } from "react-router-dom";
-import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
+import { OrderInfoContext } from "utils/context/orderInfo";
 import { Field } from "components/field";
 import { checkMiddleName, checkName, checkPhone, deleteBackSpace } from "utils/helpers/validate";
 import style from "./style.module.scss";
 
 export const OrderForm = (props: OrderFormInfo) => {
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
+  const [orderInfo, setOrderInfo] = useContext(OrderInfoContext)!;
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [patronymic, setPatronymic] = useState("");
@@ -24,11 +24,11 @@ export const OrderForm = (props: OrderFormInfo) => {
       setIsFormValid(true);
     else setIsFormValid(false);
 
-    setFilmAndUserInfo((prevValue) => {
-      prevValue.person.firstname = name;
-      prevValue.person.lastname = surname;
-      prevValue.person.middlename = patronymic;
-      prevValue.person.phone = phone;
+    setOrderInfo((prevValue) => {
+      prevValue.createCinemaPaymentDo.person.firstname = name;
+      prevValue.createCinemaPaymentDo.person.lastname = surname;
+      prevValue.createCinemaPaymentDo.person.middlename = patronymic;
+      prevValue.createCinemaPaymentDo.person.phone = phone;
       return prevValue;
     });
   }, [name, surname, patronymic, phone]);

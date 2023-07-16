@@ -1,11 +1,12 @@
 import { OrderStatus } from "utils/consts/orderStatus";
-import { OrderInfo } from "utils/types/orderInfo";
+import { OrderInfoContext } from "utils/context/orderInfo";
+import { useContext } from "react";
 import success from "assets/success.svg";
 import failed from "assets/failed.svg";
 import style from "./style.module.scss";
 
 export const ResponseDisplay = (props: { filmName: string; setOrderStatus: (newOrderStatus: OrderStatus) => void }) => {
-  const result: OrderInfo = JSON.parse(sessionStorage.getItem("result")!);
+  const [orderInfo, setOrderInfo] = useContext(OrderInfoContext)!;
   return (
     <div className={style.response_display}>
       <button
@@ -15,13 +16,13 @@ export const ResponseDisplay = (props: { filmName: string; setOrderStatus: (newO
       >
         +
       </button>
-      <h2 className={style.title}>{result.success ? "Оплата прошла успешно !" : "Оплата не прошла"}</h2>
-      <img className={style.img} src={result.success ? success : failed} alt="" />
-      {result.success ? (
+      <h2 className={style.title}>{orderInfo.result.success ? "Оплата прошла успешно !" : "Оплата не прошла"}</h2>
+      <img className={style.img} src={orderInfo.result.success ? success : failed} alt="" />
+      {orderInfo.result.success ? (
         <div className={style.information}>
           <div className={style.ticket}>
             <span>код билета</span>
-            <span>{result.order.orderNumber}</span>
+            <span>{orderInfo.result.order.orderNumber}</span>
           </div>
           <div className={style.property}>
             <span className={style.description}>Фильм: </span>
@@ -31,12 +32,12 @@ export const ResponseDisplay = (props: { filmName: string; setOrderStatus: (newO
             <span className={style.description}>Дата и время: </span>
             <span
               className={style.value}
-            >{`${result.order.tickets[0].seance.date} ${result.order.tickets[0].seance.time}`}</span>
+            >{`${orderInfo.result.order.tickets[0].seance.date} ${orderInfo.result.order.tickets[0].seance.time}`}</span>
           </div>
           <div className={style.property}>
             <span className={style.description}>Места: </span>
             <div className={style.places}>
-              {result.order.tickets.map((element, index) => (
+              {orderInfo.result.order.tickets.map((element, index) => (
                 <span key={index} className={style.value}>
                   {element.row} ряд - {element.column}
                 </span>

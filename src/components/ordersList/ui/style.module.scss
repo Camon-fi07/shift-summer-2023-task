@@ -2,20 +2,28 @@
 .orders_list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
 }
 .order {
-  padding: 5px;
+  box-shadow: 0 0 1px 1px #ffffff4d;
+  border: 1px dashed $text-color;
+  border-radius: 20px;
+  width: 440px/681px * 100%;
+  background-color: $modalBackground;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .date {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   & span {
-    color: $text-color;
+    color: $subtitle;
     font-size: 20px;
     font-weight: 500;
   }
@@ -40,15 +48,20 @@
 }
 
 .order_info {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .status {
   width: 88px;
-  height: 44px;
+  height: 24px;
   border-radius: 6px;
   background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & span {
     color: $text-color;
     font-size: 16px;

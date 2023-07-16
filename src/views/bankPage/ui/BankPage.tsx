@@ -1,33 +1,33 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CreateCinemaPaymentDo } from "utils/types/film";
 import { postRequest } from "utils/helpers/postRequest";
 import { pathToBack } from "utils/consts/pathToBack";
 import { OrderStatus } from "utils/consts/orderStatus";
-import { OrderInfo } from "utils/types/orderInfo";
+import { CreateCinemaPaymentDo, OrderInfo, OrderResult } from "utils/types/orderInfo";
 import { OrderStatusContext } from "utils/context/orderStatus";
-import { FilmAndUserInfoContext } from "utils/context/filmAndUserInfo";
 import { Field } from "components/field";
+import { OrderInfoContext } from "utils/context/orderInfo";
 import { checkCvv, checkExpireDate, checkPan, getCurrentExpireDate, getCurrentPan } from "utils/helpers/validate";
 import style from "./style.module.scss";
 import ShiftBank from "assets/SHIFTcard.svg";
 
 export const BankPage = () => {
-  const [filmAndUserInfo, setFilmAndUserInfo] = useContext(FilmAndUserInfoContext)!;
+  const [orderInfo, setOrderInfo] = useContext(OrderInfoContext)!;
   const [pan, setPan] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
   const [orderStatus, setOrderStatus] = useContext(OrderStatusContext)!;
+
   useEffect(() => {
     if (checkPan(pan) == "right" && checkExpireDate(expireDate) == "right" && checkCvv(cvv) == "right")
       setIsFormValid(true);
     else setIsFormValid(false);
-    setFilmAndUserInfo((prevValue) => {
-      prevValue.debitCard.pan = pan;
-      prevValue.debitCard.expireDate = expireDate;
-      prevValue.debitCard.cvv = cvv;
+    setOrderInfo((prevValue) => {
+      prevValue.createCinemaPaymentDo.debitCard.pan = pan;
+      prevValue.createCinemaPaymentDo.debitCard.expireDate = expireDate;
+      prevValue.createCinemaPaymentDo.debitCard.cvv = cvv;
       return prevValue;
     });
   }, [pan, expireDate, cvv]);
@@ -56,16 +56,19 @@ export const BankPage = () => {
           type="button"
           onClick={() => {
             if (isFormValid) {
-              postRequest<CreateCinemaPaymentDo, OrderInfo>(`${pathToBack}/cinema/payment`, filmAndUserInfo)
+              postRequest<CreateCinemaPaymentDo, OrderResult>(
+                `${pathToBack}/cinema/payment`,
+                orderInfo.createCinemaPaymentDo,
+              )
                 .then((res) => {
-                  sessionStorage.setItem("result", JSON.stringify(res));
-                  setOrderStatus(OrderStatus.responseDisplay);
-                  navigate(-1);
+                  setOrderInfo({ createCinemaPaymentDo: orderInfo.createCinemaPaymentDo, result: res });
                 })
                 .catch((err) => {
-                  let result = {} as OrderInfo;
-                  result.success = false;
-                  sessionStorage.setItem("result", JSON.stringify(result));
+                  let res = {} as OrderResult;
+                  res.success = false;
+                  setOrderInfo({ createCinemaPaymentDo: orderInfo.createCinemaPaymentDo, result: res });
+                })
+                .finally(() => {
                   setOrderStatus(OrderStatus.responseDisplay);
                   navigate(-1);
                 });

@@ -23,26 +23,3 @@ export interface Film {
   };
   img: string;
 }
-
-export interface CreateCinemaPaymentDo {
-  filmId: string;
-  person: {
-    firstname: string;
-    lastname: string;
-    middlename: string;
-    phone: string;
-  };
-  debitCard: {
-    pan: string;
-    expireDate: string;
-    cvv: string;
-  };
-  seance: {
-    date: string;
-    time: string;
-  };
-  tickets: {
-    row: number;
-    column: number;
-  }[];
-}
